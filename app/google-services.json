@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "150281234500",
+    "firebase_url": "https://innerveapp.firebaseio.com",
+    "project_id": "innerveapp",
+    "storage_bucket": "innerveapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:150281234500:android:3b9acfd3ed4afc79",
+        "android_client_info": {
+          "package_name": "com.example.innerveapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "150281234500-57fea302d27v0h1c3b1nf51ia41esvid.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.innerveapp",
+            "certificate_hash": "9d8c72495ccfd0dc84605b2272ae6b31cba80452"
+          }
+        },
+        {
+          "client_id": "150281234500-ph8igu3jh0t0rpdrp2l61tea98biieea.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbSxN-mK4t8VdvkAaqJh7DaPpqEyYVzqs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "150281234500-ph8igu3jh0t0rpdrp2l61tea98biieea.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
