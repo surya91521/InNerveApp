@@ -39,7 +39,7 @@
 
             <EditText
                 android:id="@+id/names"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="8dp"
@@ -47,6 +47,8 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:ems="10"
+                android:gravity="center"
+                android:hint="Enter participant's name"
                 android:inputType="textPersonName"
                 android:textSize="15sp" />
 
@@ -66,7 +68,7 @@
 
             <EditText
                 android:id="@+id/emails"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="8dp"
@@ -74,6 +76,8 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:ems="10"
+                android:gravity="center_horizontal"
+                android:hint="Enter his/her Email ID"
                 android:inputType="textEmailAddress"
                 android:textSize="15sp" />
 
@@ -93,7 +97,7 @@
 
             <EditText
                 android:id="@+id/colleges"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="8dp"
@@ -101,6 +105,8 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:ems="10"
+                android:gravity="center_horizontal"
+                android:hint="Enter his/her college name"
                 android:inputType="phone" />
 
             <TextView
@@ -119,7 +125,7 @@
 
             <EditText
                 android:id="@+id/phones"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="8dp"
@@ -127,6 +133,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:ems="10"
+                android:gravity="center_horizontal"
                 android:inputType="phone" />
 
             <TextView
@@ -209,7 +216,7 @@
 
             <EditText
                 android:id="@+id/volunteers"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="8dp"
@@ -217,6 +224,8 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:ems="10"
+                android:gravity="center_horizontal"
+                android:hint="Enter PR volunteer's name"
                 android:inputType="textEmailAddress"
                 android:textSize="15sp" />
 
