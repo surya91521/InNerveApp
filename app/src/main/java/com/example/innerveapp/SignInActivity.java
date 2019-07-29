@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -85,6 +86,8 @@ public class SignInActivity extends AppCompatActivity {
             // Signed in successfully, show authenticated UI.
 
             // Go to Single User Activity
+            Toast.makeText(SignInActivity.this, "HAVE I REACHED THIS PART", Toast.LENGTH_LONG).show();
+
             Intent intent = new Intent(SignInActivity.this, SingleUserActivity.class);
             startActivity(intent);
 
