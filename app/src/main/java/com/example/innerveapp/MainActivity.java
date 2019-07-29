@@ -36,8 +36,15 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, SingleUserActivity.class);
         startActivity(intent);
     }
+
     public void log(View view){
         Intent intent = new Intent(MainActivity.this, PRLoginActivity.class);
+        startActivity(intent);
+    }
+
+    public void googleSignIn(View view)
+    {
+        Intent intent = new Intent(MainActivity.this, SignInActivity.class);
         startActivity(intent);
     }
 }
