@@ -32,6 +32,11 @@
                 android:id="@+id/nav_contactus"
                 android:icon="@drawable/ic_account"
                 android:title="@string/menu_contactus" />
+            <item
+                android:id="@+id/nav_team"
+                android:icon="@drawable/ic_person_black_24dp"
+                android:title="Our Team" />
+
         </menu>
     </item>
 

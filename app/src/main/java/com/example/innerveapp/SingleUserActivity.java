@@ -1,5 +1,6 @@
 package com.example.innerveapp;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -134,6 +135,11 @@ public class SingleUserActivity extends AppCompatActivity
                 fragment = new contact();
                 break;
 
+            case R.id.nav_team:
+                fragment = new Team();
+                break;
+
+
 
         }
 
@@ -175,6 +181,18 @@ public class SingleUserActivity extends AppCompatActivity
 
         } else if(id == R.id.nav_signout) {
             signOut();
+        }else if(id== R.id.nav_share){
+
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            String shareBody = "Here is the link download to InNerve app. It is a hackathon conducted by Army Institute"+
+                    " Of Technoloy Pune. For registration and further details you can download this app.";
+             String shareSub = "InNerve App";
+             intent.putExtra(Intent.EXTRA_SUBJECT,shareSub);
+             intent.putExtra(Intent.EXTRA_TEXT,shareBody);
+             startActivity(Intent.createChooser(intent,"Share Using"));
+
+
         }
 
 
