@@ -18,24 +18,13 @@ public class PRLoginActivity extends AppCompatActivity implements AdapterView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prlogin);
 
-        TextView textView = (TextView)findViewById(R.id.name);
-        TextView textView1 = (TextView)findViewById(R.id.names);
-        TextView textView2 = (TextView)findViewById(R.id.email);
-        TextView textView3 = (TextView)findViewById(R.id.emails);
-        TextView textView4 = (TextView)findViewById(R.id.college);
-        TextView textView5 = (TextView)findViewById(R.id.colleges);
-        TextView textView6 = (TextView)findViewById(R.id.phone);
-        TextView textView7 = (TextView)findViewById(R.id.phones);
-        TextView textView8 = (TextView)findViewById(R.id.team);
-        TextView textView9 = (TextView)findViewById(R.id.volunteer);
-        TextView textView10 = (TextView)findViewById(R.id.volunteers);
-         Button button = (Button)findViewById(R.id.submit);
+        Button button = (Button)findViewById(R.id.submit);
 
         Spinner spinner = (Spinner)findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.Count,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-         spinner.setOnItemSelectedListener(this);
+        spinner.setOnItemSelectedListener(this);
     }
 
     @Override
