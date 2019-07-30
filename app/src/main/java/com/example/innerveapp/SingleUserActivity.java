@@ -153,7 +153,7 @@ public class SingleUserActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
 
-                // Handle navigation view item clicks here.
+        // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         displaySelectedScreen(id);

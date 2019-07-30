@@ -10,7 +10,6 @@
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -26,16 +25,16 @@
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="left"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:gravity="center"
+                android:paddingLeft="16dp"
                 android:text="Name"
                 android:textColor="#060507"
                 android:textColorHighlight="#0C0A0C"
-                android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textSize="25sp" />
 
             <EditText
                 android:id="@+id/names"
@@ -50,21 +49,23 @@
                 android:gravity="center"
                 android:hint="Enter participant's name"
                 android:inputType="textPersonName"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
                 android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="left"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:gravity="center"
-                android:text="E-MAIL ID"
+                android:paddingLeft="16dp"
+                android:text="E-Mail"
                 android:textColor="#060507"
                 android:textColorHighlight="#0C0A0C"
-                android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textSize="25sp" />
 
             <EditText
                 android:id="@+id/emails"
@@ -79,21 +80,23 @@
                 android:gravity="center_horizontal"
                 android:hint="Enter his/her Email ID"
                 android:inputType="textEmailAddress"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
                 android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/college"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="left"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:gravity="center"
-                android:text="COLLEGE"
+                android:paddingLeft="16dp"
+                android:text="College"
                 android:textColor="#060507"
                 android:textColorHighlight="#0C0A0C"
-                android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textSize="25sp" />
 
             <EditText
                 android:id="@+id/colleges"
@@ -107,21 +110,23 @@
                 android:ems="10"
                 android:gravity="center_horizontal"
                 android:hint="Enter his/her college name"
-                android:inputType="phone" />
+                android:inputType="phone"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp" />
 
             <TextView
                 android:id="@+id/phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="left"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:gravity="center"
-                android:text="PHONE"
+                android:paddingLeft="16dp"
+                android:text="Phone"
                 android:textColor="#060507"
                 android:textColorHighlight="#0C0A0C"
-                android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textSize="25sp" />
 
             <EditText
                 android:id="@+id/phones"
@@ -134,49 +139,73 @@
                 android:layout_marginBottom="8dp"
                 android:ems="10"
                 android:gravity="center_horizontal"
-                android:inputType="phone" />
+                android:inputType="phone"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp" />
 
             <TextView
                 android:id="@+id/team"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="left"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:gravity="center"
-                android:text="TEAM COUNT"
+                android:paddingLeft="16dp"
+                android:text="Team Count"
                 android:textColor="#060507"
                 android:textColorHighlight="#0C0A0C"
-                android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textSize="25sp" />
 
             <Spinner
                 android:id="@+id/spinner"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:gravity="center_horizontal" />
+                android:gravity="center_horizontal"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp" />
 
-            <ImageView
-                android:id="@+id/qr"
+
+            <TextView
+                android:id="@+id/modeOfPaymentView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                app:srcCompat="@drawable/or" />
+                android:layout_weight="1"
+                android:text="Mode of payment :-" />
 
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Cash" />
+
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="PayTM/Pay (QR)" />
+            </RadioGroup>
 
             <TextView
                 android:id="@+id/volunteer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="left"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:gravity="center"
-                android:text="VOLUNTEER"
+                android:paddingLeft="16dp"
+                android:text="Volunteer"
                 android:textColor="#060507"
                 android:textColorHighlight="#0C0A0C"
-                android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textSize="25sp" />
 
             <EditText
                 android:id="@+id/volunteers"
@@ -191,13 +220,15 @@
                 android:gravity="center_horizontal"
                 android:hint="Enter PR volunteer's name"
                 android:inputType="textEmailAddress"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
                 android:textSize="15sp" />
 
             <Button
                 android:id="@+id/submit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="SUBMIT" />
+                android:text="Submit" />
 
         </LinearLayout>
     </ScrollView>

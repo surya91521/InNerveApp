@@ -27,7 +27,6 @@ public class PRLoginActivity extends AppCompatActivity implements AdapterView.On
         TextView textView6 = (TextView)findViewById(R.id.phone);
         TextView textView7 = (TextView)findViewById(R.id.phones);
         TextView textView8 = (TextView)findViewById(R.id.team);
-        ImageView imageView = (ImageView)findViewById(R.id.qr);
         TextView textView9 = (TextView)findViewById(R.id.volunteer);
         TextView textView10 = (TextView)findViewById(R.id.volunteers);
          Button button = (Button)findViewById(R.id.submit);
