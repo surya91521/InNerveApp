@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -68,7 +70,7 @@ public class SingleUserActivity extends AppCompatActivity
             String personId = acct.getId();
             Uri personPhoto = acct.getPhotoUrl();
         }
-
+          displaySelectedScreen(R.id.nav_about);
     }
 
     @Override
@@ -103,17 +105,66 @@ public class SingleUserActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    private void displaySelectedScreen(int id){
+
+        Fragment fragment = null;
+        switch(id){
+
+            case R.id.nav_about:
+                fragment = new About();
+                break;
+
+            case R.id.nav_theme:
+                fragment = new Theme();
+                break;
+
+            case R.id.nav_timeline:
+                fragment = new Timeline();
+                break;
+
+            case R.id.nav_sponsors:
+                fragment = new Sponsors();
+                break;
+
+            case R.id.nav_faq:
+                fragment = new Faq();
+                break;
+
+            case R.id.nav_contactus:
+                fragment = new contact();
+                break;
+
+
+        }
+
+        if(fragment!=null)
+        {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content,fragment);
+            ft.commit();
+        }
+
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+    }
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+
+                // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        displaySelectedScreen(id);
+
         if (id == R.id.nav_about) {
-            // Handle the camera action
+
+
         } else if (id == R.id.nav_theme) {
 
         } else if (id == R.id.nav_timeline) {
+
 
         } else if (id == R.id.nav_sponsors) {
 
@@ -121,14 +172,18 @@ public class SingleUserActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_contactus) {
 
+
         } else if(id == R.id.nav_signout) {
             signOut();
         }
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+
+
+
         return true;
     }
+
+
 
     private void signOut() {
         mGoogleSignInClient.signOut()

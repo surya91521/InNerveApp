@@ -14,4 +14,11 @@
     <string name="menu_sponsors">Sponsors</string>
     <string name="menu_faq">FAQ</string>
     <string name="menu_contactus">Contact Us</string>
+    <string-array name ="Count">
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+        <item>four</item>
+        <item>Not Decided</item>
+    </string-array>
 </resources>
