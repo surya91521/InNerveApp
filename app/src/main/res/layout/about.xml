@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="378dp"
+        android:layout_height="423dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="127dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="181dp"
+        android:gravity="center"
+        android:text="Innerve 2k19 Hackathon provides you the platform to showcase your ideas and technical skills at a recognized level. This is the perfect opportunity to get those brilliant ideas out of your amazing minds and onto the computer screens. Coming again this year Innerve brings you with more interesting and challenging problem statements than ever before. So get ready for Innerve 4.0 to exhilarate you with newer ideas,more rewards and a fun packed experience.  "
+        android:textColor="#090A0E"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>
