@@ -1,29 +1,21 @@
 {
   "project_info": {
-    "project_number": "150281234500",
-    "firebase_url": "https://innerveapp.firebaseio.com",
-    "project_id": "innerveapp",
-    "storage_bucket": "innerveapp.appspot.com"
+    "project_number": "220467385657",
+    "firebase_url": "https://innerveapp-4be62.firebaseio.com",
+    "project_id": "innerveapp-4be62",
+    "storage_bucket": "innerveapp-4be62.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:150281234500:android:3b9acfd3ed4afc79",
+        "mobilesdk_app_id": "1:220467385657:android:3b9acfd3ed4afc79",
         "android_client_info": {
           "package_name": "com.example.innerveapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "150281234500-oe00kctv6tbggr31rb8e80mkk5hg6qs6.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.innerveapp",
-            "certificate_hash": "bfbf4a58e88533b9da9856f909b55c29a41ff9d9"
-          }
-        },
-        {
-          "client_id": "150281234500-57fea302d27v0h1c3b1nf51ia41esvid.apps.googleusercontent.com",
+          "client_id": "220467385657-6aq775rnup81a97pt86uadef9n2egfhl.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.innerveapp",
@@ -31,29 +23,28 @@
           }
         },
         {
-          "client_id": "150281234500-ph8igu3jh0t0rpdrp2l61tea98biieea.apps.googleusercontent.com",
-          "client_type": 3
-        },
-	{
-	"client_id": "150281234500-bbmkt7ikqumj1o2vs6a48bc59dn9bl46.apps.googleusercontent.com",
-          "client_type": 1, 
-          "android_info": { 
+          "client_id": "220467385657-elkl0pkjntu0khojok5jit8d7808ribq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
             "package_name": "com.example.innerveapp",
-            "certificate_hash": "9D8C72495CCFD0DC84605B2272AE6B31CBA80452"  
-          } 
-	}
-
+            "certificate_hash": "52605ed36dc335b5a6f20c5e1d4c742d05baf636"
+          }
+        },
+        {
+          "client_id": "220467385657-1gdn65iqccr9pji04csbjudtm1i1aqcm.apps.googleusercontent.com",
+          "client_type": 3
+        }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDbSxN-mK4t8VdvkAaqJh7DaPpqEyYVzqs"
+          "current_key": "AIzaSyBu1JMk67i6ZA_gbrazIeudc7faDE4AygY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "150281234500-ph8igu3jh0t0rpdrp2l61tea98biieea.apps.googleusercontent.com",
+              "client_id": "220467385657-1gdn65iqccr9pji04csbjudtm1i1aqcm.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
