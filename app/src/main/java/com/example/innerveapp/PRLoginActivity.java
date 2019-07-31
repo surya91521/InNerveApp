@@ -1,9 +1,11 @@
 package com.example.innerveapp;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,6 +15,15 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class PRLoginActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private TextInputLayout textInputName;
@@ -21,10 +32,35 @@ public class PRLoginActivity extends AppCompatActivity implements AdapterView.On
     private TextInputLayout textInputpNumber;
     private TextInputLayout textInputVolunteer;
 
+    public String user;
+    int count;
+
+    private DocumentReference userCount = FirebaseFirestore.getInstance().document("innerveData/usercount");
+    private DocumentReference mUserRef;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prlogin);
+
+        userCount.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                if(documentSnapshot.exists())
+                {
+                    count = documentSnapshot.getLong("count").intValue();
+                    count++;
+                    user = "user" + count;
+
+                    mUserRef = FirebaseFirestore.getInstance().document("innerveData/participants/users/" + user);
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                user = "usernull";
+            }
+        });
 
         textInputName = findViewById(R.id.names);
         textInputEmail = findViewById(R.id.emails);
@@ -112,6 +148,42 @@ public class PRLoginActivity extends AppCompatActivity implements AdapterView.On
             return;
         }
 
-        Toast.makeText(PRLoginActivity.this, "Valid info provided", Toast.LENGTH_SHORT).show();
+        saveToFireStore();
+    }
+
+    public void saveToFireStore()
+    {
+        Map<String, Object> participant = new HashMap<>();
+        participant.put("name", textInputName.getEditText().getText().toString());
+        participant.put("email", textInputEmail.getEditText().getText().toString());
+        participant.put("college", textInputCollege.getEditText().getText().toString());
+        participant.put("number", textInputpNumber.getEditText().getText().toString());
+        participant.put("pr", textInputVolunteer.getEditText().getText().toString());
+
+        mUserRef.set(participant).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Toast.makeText(PRLoginActivity.this, "Document saved successfully", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(PRLoginActivity.this, "Document could not be saved", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        Map<String, Object> counter = new HashMap<>();
+        counter.put("count", count);
+        userCount.set(counter).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Log.i("Count","Updated count");
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.i("Count","Failed to update count.");
+            }
+        });
     }
 }
