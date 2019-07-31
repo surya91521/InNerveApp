@@ -33,7 +33,16 @@
         {
           "client_id": "150281234500-ph8igu3jh0t0rpdrp2l61tea98biieea.apps.googleusercontent.com",
           "client_type": 3
-        }
+        },
+	{
+	"client_id": "150281234500-bbmkt7ikqumj1o2vs6a48bc59dn9bl46.apps.googleusercontent.com",
+          "client_type": 1, 
+          "android_info": { 
+            "package_name": "com.example.innerveapp",
+            "certificate_hash": "9D8C72495CCFD0DC84605B2272AE6B31CBA80452"  
+          } 
+	}
+
       ],
       "api_key": [
         {
