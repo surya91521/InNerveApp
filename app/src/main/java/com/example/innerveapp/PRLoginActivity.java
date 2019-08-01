@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -24,7 +25,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PRLoginActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class PRLoginActivity extends AppCompatActivity{
 
     private TextInputLayout textInputName;
     private TextInputLayout textInputEmail;
@@ -72,17 +73,17 @@ public class PRLoginActivity extends AppCompatActivity implements AdapterView.On
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.Count,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
-    }
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                showTeamMemberEditText(i);
+            }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String text = parent.getItemAtPosition(position).toString();
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                showTeamMemberEditText(0);
+            }
+        });
     }
 
     private boolean validateEmail()
@@ -185,5 +186,26 @@ public class PRLoginActivity extends AppCompatActivity implements AdapterView.On
                 Log.i("Count","Failed to update count.");
             }
         });
+    }
+
+    public void showTeamMemberEditText(int num)
+    {
+        TextInputLayout second = findViewById(R.id.secondTeam);
+        TextInputLayout third = findViewById(R.id.thirdTeam);
+        TextInputLayout fourth = findViewById(R.id.fourthTeam);
+
+        second.setVisibility(View.GONE);
+        third.setVisibility(View.GONE);
+        fourth.setVisibility(View.GONE);
+
+        switch(num)
+        {
+            case 3:
+                fourth.setVisibility(View.VISIBLE);
+            case 2:
+                third.setVisibility(View.VISIBLE);
+            case 1:
+                second.setVisibility(View.VISIBLE);
+        }
     }
 }

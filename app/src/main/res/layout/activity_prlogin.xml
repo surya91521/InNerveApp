@@ -27,12 +27,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:errorEnabled="true">
+
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:errorEnabled="true"
-                    android:hint="Enter participant's name"
-                    android:inputType="textPersonName"/>
+                    android:hint="Participant's name"
+                    android:inputType="textPersonName"
+                    app:errorEnabled="true" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -40,12 +41,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:errorEnabled="true">
+
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:errorEnabled="true"
-                    android:hint="Enter his/her Email ID"
-                    android:inputType="textEmailAddress"/>
+                    android:hint="Email ID"
+                    android:inputType="textEmailAddress"
+                    app:errorEnabled="true" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -53,12 +55,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:errorEnabled="true">
+
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:errorEnabled="true"
-                    android:hint="Enter his/her college name"
-                    android:inputType="textImeMultiLine"/>
+                    android:hint="College name"
+                    android:inputType="textImeMultiLine"
+                    app:errorEnabled="true" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -66,11 +69,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:errorEnabled="true">
+
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:errorEnabled="true"
-                    android:inputType="phone"/>
+                    android:hint="Phone Number"
+                    android:inputType="phone"
+                    app:errorEnabled="true" />
             </android.support.design.widget.TextInputLayout>
 
             <TextView
@@ -88,6 +93,47 @@
                 android:layout_height="45dp"
                 android:gravity="center_horizontal" />
 
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/secondTeam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true"
+                android:visibility="gone">
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:errorEnabled="true"
+                    android:hint="Second team member name"
+                    android:inputType="textPersonName"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/thirdTeam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true"
+                android:visibility="gone">
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:errorEnabled="true"
+                    android:hint="Third team member name"
+                    android:inputType="textPersonName"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/fourthTeam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true"
+                android:visibility="gone">
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:errorEnabled="true"
+                    android:hint="Fourth team member name"
+                    android:inputType="textPersonName"/>
+            </android.support.design.widget.TextInputLayout>
 
             <TextView
                 android:id="@+id/modeOfPaymentView"
@@ -121,12 +167,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:errorEnabled="true">
+
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:errorEnabled="true"
+                    android:hint="PR volunteer's name"
                     android:inputType="textPersonName"
-                    android:hint="Enter PR volunteer's name"/>
+                    app:errorEnabled="true" />
             </android.support.design.widget.TextInputLayout>
 
             <Button
