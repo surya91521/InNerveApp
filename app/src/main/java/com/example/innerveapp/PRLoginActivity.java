@@ -6,11 +6,14 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,14 +26,23 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
-public class PRLoginActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class PRLoginActivity extends AppCompatActivity{
+
+    private static final Pattern NAME_PATTERN = Pattern.compile("^[\\p{L} .'-]+$");
 
     private TextInputLayout textInputName;
     private TextInputLayout textInputEmail;
     private TextInputLayout textInputCollege;
     private TextInputLayout textInputpNumber;
     private TextInputLayout textInputVolunteer;
+    private RadioGroup paymentMode;
+    private Spinner spinner;
+
+    private TextInputLayout second;
+    private TextInputLayout third;
+    private TextInputLayout fourth;
 
     public String user;
     int count;
@@ -67,22 +79,27 @@ public class PRLoginActivity extends AppCompatActivity implements AdapterView.On
         textInputCollege = findViewById(R.id.colleges);
         textInputpNumber = findViewById(R.id.phones);
         textInputVolunteer = findViewById(R.id.volunteers);
+        paymentMode = findViewById(R.id.paymentMethod);
 
-        Spinner spinner = (Spinner)findViewById(R.id.spinner);
+        second = findViewById(R.id.secondTeam);
+        third = findViewById(R.id.thirdTeam);
+        fourth = findViewById(R.id.fourthTeam);
+
+        spinner = (Spinner)findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.Count,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
-    }
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                showTeamMemberEditText(i);
+            }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String text = parent.getItemAtPosition(position).toString();
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                showTeamMemberEditText(0);
+            }
+        });
     }
 
     private boolean validateEmail()
@@ -93,24 +110,22 @@ public class PRLoginActivity extends AppCompatActivity implements AdapterView.On
         {
             textInputEmail.setError("Field can't be empty");
             return false;
-        }else{
+        }else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+        {
+            textInputEmail.setError("Please enter a valid email address");
+            return false;
+        }
+        else{
             textInputEmail.setError(null);
             return true;
         }
     }
 
-    private boolean validateName()
+    private boolean validateUserName()
     {
         String name = textInputName.getEditText().getText().toString().trim();
 
-        if(name.isEmpty())
-        {
-            textInputName.setError("Field can't be empty");
-            return false;
-        }else{
-            textInputName.setError(null);
-            return true;
-        }
+        return validateName(name, textInputName);
     }
 
     private boolean validateCollege()
@@ -121,7 +136,8 @@ public class PRLoginActivity extends AppCompatActivity implements AdapterView.On
         {
             textInputCollege.setError("Field can't be empty");
             return false;
-        }else{
+        }
+        else{
             textInputCollege.setError(null);
             return true;
         }
@@ -131,19 +147,12 @@ public class PRLoginActivity extends AppCompatActivity implements AdapterView.On
     {
         String volun = textInputVolunteer.getEditText().getText().toString().trim();
 
-        if(volun.isEmpty())
-        {
-            textInputVolunteer.setError("Field can't be empty");
-            return false;
-        }else{
-            textInputVolunteer.setError(null);
-            return true;
-        }
+        return validateName(volun, textInputVolunteer);
     }
 
     public void confirmInput(View view)
     {
-        if(!validateCollege() | !validateEmail() | !validateName() | !validateVolunteer())
+        if(!validateCollege() | !validateEmail() | !validateUserName() | !validateVolunteer() | !validateTeamMembers())
         {
             return;
         }
@@ -160,15 +169,47 @@ public class PRLoginActivity extends AppCompatActivity implements AdapterView.On
         participant.put("number", textInputpNumber.getEditText().getText().toString());
         participant.put("pr", textInputVolunteer.getEditText().getText().toString());
 
+        int payid = paymentMode.getCheckedRadioButtonId();
+
+        if(payid == R.id.cashId)
+        {
+            participant.put("paymentMethod", "Cash");
+        }
+        else if(payid == R.id.payId)
+        {
+            participant.put("paymentMethod", "PayTM/Pay");
+        }
+
+        // add team members
+        int teamcount = spinner.getSelectedItemPosition();
+
+        if(teamcount != 4)
+        {
+            if(teamcount >= 1)
+            {
+                participant.put("secondMember", second.getEditText().getText().toString());
+
+                if(teamcount >= 2)
+                {
+                    participant.put("thirdMember", second.getEditText().getText().toString());
+
+                    if(teamcount == 3)
+                    {
+                        participant.put("fourthMember", fourth.getEditText().getText().toString());
+                    }
+                }
+            }
+        }
+
         mUserRef.set(participant).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                Toast.makeText(PRLoginActivity.this, "Document saved successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(PRLoginActivity.this, "Registration saved successfully", Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(PRLoginActivity.this, "Document could not be saved", Toast.LENGTH_SHORT).show();
+                Toast.makeText(PRLoginActivity.this, "Registration could not be saved", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -185,5 +226,60 @@ public class PRLoginActivity extends AppCompatActivity implements AdapterView.On
                 Log.i("Count","Failed to update count.");
             }
         });
+    }
+
+    public void showTeamMemberEditText(int num)
+    {
+        second.setVisibility(View.GONE);
+        third.setVisibility(View.GONE);
+        fourth.setVisibility(View.GONE);
+
+        switch(num)
+        {
+            case 3:
+                fourth.setVisibility(View.VISIBLE);
+            case 2:
+                third.setVisibility(View.VISIBLE);
+            case 1:
+                second.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public boolean validateName(String name, TextInputLayout layout)
+    {
+        if(name.isEmpty())
+        {
+            layout.setError("Field can't be empty");
+            return false;
+        }
+        else if(!NAME_PATTERN.matcher(name).matches())
+        {
+            layout.setError("Invalid name");
+            return false;
+        }
+        else{
+            layout.setError(null);
+            return true;
+        }
+    }
+
+    public boolean validateTeamMembers()
+    {
+        int teamcount = spinner.getSelectedItemPosition();
+        boolean validated = true;
+
+        // if even one is invalid, function returns false
+
+        switch(teamcount)
+        {
+            case 3:
+                validated = validated && validateName(fourth.getEditText().getText().toString(), fourth);
+            case 2:
+                validated = validated && validateName(third.getEditText().getText().toString(), third);
+            case 1:
+                validated = validated && validateName(second.getEditText().getText().toString(), second);
+        }
+
+        return validated;
     }
 }
