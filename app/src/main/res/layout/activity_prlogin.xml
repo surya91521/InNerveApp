@@ -143,19 +143,20 @@
                 android:text="Mode of payment :-" />
 
             <RadioGroup
+                android:id="@+id/paymentMethod"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/cashId"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Cash" />
 
                 <RadioButton
-                    android:id="@+id/radioButton"
+                    android:id="@+id/payId"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
