@@ -121,24 +121,11 @@ public class PRLoginActivity extends AppCompatActivity{
         }
     }
 
-    private boolean validateName()
+    private boolean validateUserName()
     {
         String name = textInputName.getEditText().getText().toString().trim();
 
-        if(name.isEmpty())
-        {
-            textInputName.setError("Field can't be empty");
-            return false;
-        }
-        else if(!NAME_PATTERN.matcher(name).matches())
-        {
-            textInputName.setError("Invalid name");
-            return false;
-        }
-        else{
-            textInputName.setError(null);
-            return true;
-        }
+        return validateName(name, textInputName);
     }
 
     private boolean validateCollege()
@@ -160,25 +147,12 @@ public class PRLoginActivity extends AppCompatActivity{
     {
         String volun = textInputVolunteer.getEditText().getText().toString().trim();
 
-        if(volun.isEmpty())
-        {
-            textInputVolunteer.setError("Field can't be empty");
-            return false;
-        }
-        else if(!NAME_PATTERN.matcher(volun).matches())
-        {
-            textInputVolunteer.setError("Invalid name");
-            return false;
-        }
-        else{
-            textInputVolunteer.setError(null);
-            return true;
-        }
+        return validateName(volun, textInputVolunteer);
     }
 
     public void confirmInput(View view)
     {
-        if(!validateCollege() | !validateEmail() | !validateName() | !validateVolunteer())
+        if(!validateCollege() | !validateEmail() | !validateUserName() | !validateVolunteer() | !validateTeamMembers())
         {
             return;
         }
@@ -207,7 +181,7 @@ public class PRLoginActivity extends AppCompatActivity{
         }
 
         // add team members
-        int teamcount =spinner.getSelectedItemPosition();
+        int teamcount = spinner.getSelectedItemPosition();
 
         if(teamcount != 4)
         {
@@ -269,5 +243,43 @@ public class PRLoginActivity extends AppCompatActivity{
             case 1:
                 second.setVisibility(View.VISIBLE);
         }
+    }
+
+    public boolean validateName(String name, TextInputLayout layout)
+    {
+        if(name.isEmpty())
+        {
+            layout.setError("Field can't be empty");
+            return false;
+        }
+        else if(!NAME_PATTERN.matcher(name).matches())
+        {
+            layout.setError("Invalid name");
+            return false;
+        }
+        else{
+            layout.setError(null);
+            return true;
+        }
+    }
+
+    public boolean validateTeamMembers()
+    {
+        int teamcount = spinner.getSelectedItemPosition();
+        boolean validated = true;
+
+        // if even one is invalid, function returns false
+
+        switch(teamcount)
+        {
+            case 3:
+                validated = validated && validateName(fourth.getEditText().getText().toString(), fourth);
+            case 2:
+                validated = validated && validateName(third.getEditText().getText().toString(), third);
+            case 1:
+                validated = validated && validateName(second.getEditText().getText().toString(), second);
+        }
+
+        return validated;
     }
 }
