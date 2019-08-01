@@ -152,7 +152,7 @@ public class PRLoginActivity extends AppCompatActivity{
 
     public void confirmInput(View view)
     {
-        if(!validateCollege() | !validateEmail() | !validateUserName() | !validateVolunteer() | !validateTeamMembers())
+        if(!validateCollege() | !validateEmail() | !validateUserName() | !validateVolunteer() | !validateTeamMembers() | !validatePhone())
         {
             return;
         }
@@ -259,6 +259,24 @@ public class PRLoginActivity extends AppCompatActivity{
         }
         else{
             layout.setError(null);
+            return true;
+        }
+    }
+
+    private boolean validatePhone()
+    {
+        String phone = textInputpNumber.getEditText().getText().toString().trim();
+
+        if(phone.isEmpty())
+        {
+            textInputpNumber.setError("Field can't be empty");
+            return false;
+        }else if(!Patterns.PHONE.matcher(phone).matches() || (phone.length() != 10))
+        {
+            textInputpNumber.setError("Please enter a valid phone number");
+            return false;
+        }else{
+            textInputpNumber.setError(null);
             return true;
         }
     }
