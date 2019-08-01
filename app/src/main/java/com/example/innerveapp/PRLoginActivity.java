@@ -6,6 +6,7 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -25,8 +26,11 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class PRLoginActivity extends AppCompatActivity{
+
+    private static final Pattern NAME_PATTERN = Pattern.compile("^[\\p{L} .'-]+$");
 
     private TextInputLayout textInputName;
     private TextInputLayout textInputEmail;
@@ -106,7 +110,12 @@ public class PRLoginActivity extends AppCompatActivity{
         {
             textInputEmail.setError("Field can't be empty");
             return false;
-        }else{
+        }else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+        {
+            textInputEmail.setError("Please enter a valid email address");
+            return false;
+        }
+        else{
             textInputEmail.setError(null);
             return true;
         }
@@ -120,7 +129,13 @@ public class PRLoginActivity extends AppCompatActivity{
         {
             textInputName.setError("Field can't be empty");
             return false;
-        }else{
+        }
+        else if(!NAME_PATTERN.matcher(name).matches())
+        {
+            textInputName.setError("Invalid name");
+            return false;
+        }
+        else{
             textInputName.setError(null);
             return true;
         }
@@ -134,7 +149,8 @@ public class PRLoginActivity extends AppCompatActivity{
         {
             textInputCollege.setError("Field can't be empty");
             return false;
-        }else{
+        }
+        else{
             textInputCollege.setError(null);
             return true;
         }
@@ -148,7 +164,13 @@ public class PRLoginActivity extends AppCompatActivity{
         {
             textInputVolunteer.setError("Field can't be empty");
             return false;
-        }else{
+        }
+        else if(!NAME_PATTERN.matcher(volun).matches())
+        {
+            textInputVolunteer.setError("Invalid name");
+            return false;
+        }
+        else{
             textInputVolunteer.setError(null);
             return true;
         }
