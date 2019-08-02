@@ -20,21 +20,28 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.Toast;
 
+import com.facebook.login.LoginManager;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SingleUserActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private FirebaseAuth mAuth;
 
     GoogleSignInClient mGoogleSignInClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_single_user);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -212,5 +219,33 @@ public class SingleUserActivity extends AppCompatActivity
                         finish();
                     }
                 });
+
+        mAuth.signOut();
+        LoginManager.getInstance().logOut();
+        Intent accountIntent = new Intent(SingleUserActivity.this,MainActivity.class);
+        startActivity(accountIntent);
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        //updateUI(currentUser);
+
+        if(currentUser==null)
+        {
+            updateUI();
+        }
+    }
+
+    private void updateUI() {
+
+
+        Intent accountIntent = new Intent(SingleUserActivity.this,MainActivity.class);
+        startActivity(accountIntent);
+        finish();
+
     }
 }
