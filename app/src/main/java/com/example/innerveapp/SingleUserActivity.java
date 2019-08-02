@@ -1,5 +1,7 @@
 package com.example.innerveapp;
 
+import android.app.DownloadManager;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -26,12 +28,22 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import static android.os.Environment.DIRECTORY_DOWNLOADS;
 
 public class SingleUserActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    FirebaseStorage firebaseStorage;
+    StorageReference storageReference;
+    StorageReference ref;
 
     private FirebaseAuth mAuth;
 
@@ -40,6 +52,7 @@ public class SingleUserActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
         mAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_single_user);
@@ -176,7 +189,11 @@ public class SingleUserActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_theme) {
 
-        } else if (id == R.id.nav_timeline) {
+        } else if(id==R.id.nav_down) {
+
+              download();
+
+        }else if (id == R.id.nav_timeline) {
 
 
         } else if (id == R.id.nav_sponsors) {
@@ -208,6 +225,40 @@ public class SingleUserActivity extends AppCompatActivity
         return true;
     }
 
+    private void download() {
+
+        storageReference = firebaseStorage.getInstance().getReference();
+          ref = storageReference.child("participant.pdf");
+
+          ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+              @Override
+              public void onSuccess(Uri uri) {
+
+                  String url =uri.toString();
+
+                  downloadFile(SingleUserActivity.this,"participant",".pdf",DIRECTORY_DOWNLOADS,url) ;
+
+              }
+          }).addOnFailureListener(new OnFailureListener() {
+              @Override
+              public void onFailure(@NonNull Exception e) {
+
+              }
+          });
+    }
+
+    private void downloadFile(Context context , String filename ,String fileExtension , String destinationDirector , String url) {
+
+        DownloadManager downloadManager = (DownloadManager)context.getSystemService(Context.DOWNLOAD_SERVICE);
+        Uri uri = Uri.parse(url);
+        DownloadManager.Request request = new DownloadManager.Request(uri);
+
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        request.setDestinationInExternalFilesDir(context, destinationDirector, filename + fileExtension);
+        downloadManager.enqueue(request);
+
+
+    }
 
 
     private void signOut() {

@@ -13,7 +13,7 @@
 
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imageView2"
             android:layout_width="262dp"
             android:layout_height="290dp"
             android:layout_alignParentTop="true"
@@ -70,16 +70,18 @@
             app:cardElevation="10dp">
 
             <RelativeLayout
+                android:id="@+id/login"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#070407"
                 android:onClick="emailSignIn">
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/logins"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
+
                     android:text="Login"
                     android:textColor="#fff"
                     android:textSize="18sp" />
@@ -94,7 +96,6 @@
             android:layout_above="@+id/linearLayout"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="6dp"
-            android:onClick="changeActivity"
             android:text="Go to Single User"
             android:textColor="#F4F1F5"
             android:textColorHint="#F8F4F5" />
@@ -103,8 +104,8 @@
             android:id="@+id/linearLayout"
             android:layout_width="208dp"
             android:layout_height="44dp"
-            android:layout_alignStart="@+id/imageView"
-            android:layout_alignLeft="@+id/imageView"
+            android:layout_alignStart="@+id/imageView2"
+            android:layout_alignLeft="@+id/imageView2"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="36dp"
             android:layout_marginLeft="36dp"
@@ -118,6 +119,13 @@
                 android:layout_marginBottom="6dp"
                 android:onClick="buttonclickLoginFb" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

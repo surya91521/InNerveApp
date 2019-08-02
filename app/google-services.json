@@ -1,50 +1,42 @@
 {
   "project_info": {
-    "project_number": "220467385657",
-    "firebase_url": "https://innerveapp-4be62.firebaseio.com",
-    "project_id": "innerveapp-4be62",
-    "storage_bucket": "innerveapp-4be62.appspot.com"
+    "project_number": "572985069199",
+    "firebase_url": "https://innerveapp-84832.firebaseio.com",
+    "project_id": "innerveapp-84832",
+    "storage_bucket": "innerveapp-84832.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:220467385657:android:3b9acfd3ed4afc79",
+        "mobilesdk_app_id": "1:572985069199:android:3b9acfd3ed4afc79",
         "android_client_info": {
           "package_name": "com.example.innerveapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "220467385657-6aq775rnup81a97pt86uadef9n2egfhl.apps.googleusercontent.com",
+          "client_id": "572985069199-1mbddokdh23nuecnn6hd0auao28gc5nt.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.innerveapp",
-            "certificate_hash": "9d8c72495ccfd0dc84605b2272ae6b31cba80452"
+            "certificate_hash": "bfbf4a58e88533b9da9856f909b55c29a41ff9d9"
           }
         },
         {
-          "client_id": "220467385657-elkl0pkjntu0khojok5jit8d7808ribq.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.innerveapp",
-            "certificate_hash": "52605ed36dc335b5a6f20c5e1d4c742d05baf636"
-          }
-        },
-        {
-          "client_id": "220467385657-1gdn65iqccr9pji04csbjudtm1i1aqcm.apps.googleusercontent.com",
+          "client_id": "572985069199-a26oic5pv6avnlb7mqn1bjo7g0vr1h67.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBu1JMk67i6ZA_gbrazIeudc7faDE4AygY"
+          "current_key": "AIzaSyDyZV8q80sV07uX4iVnJP43fSEWWkza86E"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "220467385657-1gdn65iqccr9pji04csbjudtm1i1aqcm.apps.googleusercontent.com",
+              "client_id": "572985069199-a26oic5pv6avnlb7mqn1bjo7g0vr1h67.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

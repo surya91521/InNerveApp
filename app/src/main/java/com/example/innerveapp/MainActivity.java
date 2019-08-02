@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.EditText;
@@ -38,6 +40,8 @@ import com.google.firebase.auth.FirebaseUser;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
+
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
@@ -53,8 +57,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // Initialize Firebase Auth
+
+
         mAuth = FirebaseAuth.getInstance();
-        user = mAuth.getCurrentUser();
+
+
+    user = mAuth.getCurrentUser();
         callbackManager = CallbackManager.Factory.create();
 
         if(user == null)
@@ -69,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent (MainActivity.this,SingleUserActivity.class);
             startActivity(intent);
         }
+
     }
 
 
@@ -80,11 +89,7 @@ public class MainActivity extends AppCompatActivity {
         //updateUI(currentUser);
     }
 
-    public void changeActivity(View view)
-    {
-        Intent intent = new Intent(MainActivity.this, SingleUserActivity.class);
-        startActivity(intent);
-    }
+
 
     public void log(String prname){
         Intent intent = new Intent(MainActivity.this, PRLoginActivity.class);
@@ -200,5 +205,6 @@ public class MainActivity extends AppCompatActivity {
     {
         FirebaseAuth.getInstance().signOut();
     }
+
 
 }
