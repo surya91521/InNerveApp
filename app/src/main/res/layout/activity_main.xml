@@ -22,16 +22,16 @@
             app:srcCompat="@drawable/innervec" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/emailText"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_above="@+id/editText2"
+            android:layout_above="@+id/passwordText"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="35dp"
             android:background="#11000000"
             android:drawableLeft="@drawable/ic_action_user"
             android:ems="10"
-            android:hint="Username"
+            android:hint="Email"
             android:inputType="textPersonName"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
@@ -41,11 +41,11 @@
             android:textSize="16dp" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/passwordText"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_alignStart="@+id/editText"
-            android:layout_alignLeft="@+id/editText"
+            android:layout_alignStart="@+id/emailText"
+            android:layout_alignLeft="@+id/emailText"
             android:layout_alignBottom="@+id/cardView"
             android:layout_marginBottom="130dp"
             android:background="#11000000"
@@ -72,7 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#070407"
-                android:onClick="log">
+                android:onClick="emailSignIn">
 
                 <TextView
                     android:id="@+id/textView"
