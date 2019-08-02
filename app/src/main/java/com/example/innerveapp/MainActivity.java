@@ -44,8 +44,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void log(){
+    public void log(String prname){
         Intent intent = new Intent(MainActivity.this, PRLoginActivity.class);
+        intent.putExtra("prname", prname);
         startActivity(intent);
     }
 
@@ -77,9 +78,8 @@ public class MainActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-
                             // open pr registration page
-                            log();
+                            log(user.getDisplayName());
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.

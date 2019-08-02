@@ -100,6 +100,8 @@ public class PRLoginActivity extends AppCompatActivity{
                 showTeamMemberEditText(0);
             }
         });
+
+        textInputVolunteer.getEditText().setText(getIntent().getStringExtra("prname"));
     }
 
     private boolean validateEmail()
