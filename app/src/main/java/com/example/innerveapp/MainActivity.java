@@ -1,10 +1,8 @@
 package com.example.innerveapp;
 
 import android.content.Intent;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -57,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // Initialize Firebase Auth
-
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -163,6 +160,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(accountIntent);
         finish();
     }
+
+    private void updateUI()
+    {
+        Intent accountIntent = new Intent(MainActivity.this,SingleUserActivity.class);
+        startActivity(accountIntent);
+    }
+
     public void emailSignIn(View view) {
         EditText emailText = (EditText) findViewById(R.id.emailText);
         EditText passwordText = (EditText) findViewById(R.id.passwordText);
@@ -207,5 +211,8 @@ public class MainActivity extends AppCompatActivity {
         FirebaseAuth.getInstance().signOut();
     }
 
-
+    public void goToSingleUser(View view)
+    {
+        updateUI();
+    }
 }

@@ -96,6 +96,7 @@
             android:layout_above="@+id/linearLayout"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="6dp"
+            android:onClick="goToSingleUser"
             android:text="Go to Single User"
             android:textColor="#F4F1F5"
             android:textColorHint="#F8F4F5" />
