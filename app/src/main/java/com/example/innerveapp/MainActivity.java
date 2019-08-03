@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         // Initialize Firebase Auth
 
-
         progressDialog = new ProgressDialog(MainActivity.this);
         progressDialog.setMessage("Loading");
 

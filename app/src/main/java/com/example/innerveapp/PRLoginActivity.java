@@ -24,6 +24,7 @@ import android.view.Menu;
 import com.facebook.login.LoginManager;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -32,6 +33,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
 
+import static com.example.innerveapp.R.id.action_report;
 import static com.example.innerveapp.R.id.action_sign_out;
 
 public class PRLoginActivity extends AppCompatActivity{
@@ -121,17 +123,22 @@ public class PRLoginActivity extends AppCompatActivity{
         return true;
     }
 
-    /*@Override
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case action_sign_out: {
-                // do your sign-out stuff
+                FirebaseAuth.getInstance().signOut();
+                finish();
                 break;
+
             }
-            // case blocks for other MenuItems (if any)
+            case action_report:
+                Toast.makeText(PRLoginActivity.this, "R E P O R T", Toast.LENGTH_SHORT).show();
+                break;
         }
+
         return true;
-    } */
+    }
 
     private boolean validateEmail()
     {
