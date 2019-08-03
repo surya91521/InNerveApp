@@ -24,12 +24,11 @@
             android:id="@+id/nav_down"
             android:icon="@drawable/ic_download"
             android:title="Download Brochure" />
+
     </group>
-
-
-    <group android:checkableBehavior="single">
-    <menu android:title="Communicate"/>
-
+    <item android:title="Communicate">
+        <menu>
+            <group android:checkableBehavior="single">
             <item
                 android:id="@+id/nav_faq"
                 android:icon="@drawable/ic_assignment"
@@ -42,11 +41,12 @@
                 android:id="@+id/nav_team"
                 android:icon="@drawable/ic_person_black_24dp"
                 android:title="Our Team" />
-    </group>
+            </group>
+        </menu>
+    </item>
 
-    <group android:checkableBehavior="single">
-
-    <menu android:title="User"/>
+    <item android:title="User">
+        <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_share"
@@ -56,7 +56,6 @@
                 android:icon="@drawable/ic_arrow"
                 android:title="Sign Out"
                 />
-
-    </group>
-
+        </menu>
+    </item>
 </menu>
