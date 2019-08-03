@@ -70,7 +70,6 @@
             app:cardElevation="10dp">
 
             <RelativeLayout
-                android:id="@+id/login"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#070407"
@@ -119,6 +118,8 @@
                 android:layout_marginBottom="6dp"
                 android:onClick="buttonclickLoginFb" />
         </LinearLayout>
+
+
 
     </RelativeLayout>
 

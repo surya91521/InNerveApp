@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         }else {
-            Intent intent = new Intent (MainActivity.this,SingleUserActivity.class);
+            Intent intent = new Intent (MainActivity.this,PRLoginActivity.class);
             startActivity(intent);
         }
 
@@ -185,6 +185,7 @@ public class MainActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+
                             // open pr registration page
                             log(user.getDisplayName());
                             //updateUI(user);
