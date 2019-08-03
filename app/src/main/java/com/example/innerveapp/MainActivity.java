@@ -1,5 +1,6 @@
 package com.example.innerveapp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
     private FirebaseAuth mAuth;
+    private ProgressDialog progressDialog;
     CallbackManager callbackManager;
     LoginButton loginButton;
     FirebaseUser user;
@@ -58,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         // Initialize Firebase Auth
 
+          progressDialog = new ProgressDialog(this);
+          progressDialog.setMessage("Loading");
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -164,6 +168,8 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
     public void emailSignIn(View view) {
+
+        progressDialog.show();
         EditText emailText = (EditText) findViewById(R.id.emailText);
         EditText passwordText = (EditText) findViewById(R.id.passwordText);
 
@@ -182,6 +188,8 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+
+                            progressDialog.cancel();
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
@@ -190,6 +198,8 @@ public class MainActivity extends AppCompatActivity {
                             log(user.getDisplayName());
                             //updateUI(user);
                         } else {
+
+                            progressDialog.cancel();
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
                             Toast.makeText(MainActivity.this, "Authentication failed.",
