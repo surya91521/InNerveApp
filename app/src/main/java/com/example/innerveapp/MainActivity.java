@@ -2,10 +2,8 @@ package com.example.innerveapp;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -48,10 +46,10 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
     private FirebaseAuth mAuth;
-    private ProgressDialog progressDialog;
     CallbackManager callbackManager;
     LoginButton loginButton;
     FirebaseUser user;
+     ProgressDialog progressDialog;
 
 
     @Override
@@ -66,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
-    user = mAuth.getCurrentUser();
+        user = mAuth.getCurrentUser();
         callbackManager = CallbackManager.Factory.create();
 
         if(user == null)
@@ -167,6 +165,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(accountIntent);
         finish();
     }
+
+    private void updateUI()
+    {
+        Intent accountIntent = new Intent(MainActivity.this,SingleUserActivity.class);
+        startActivity(accountIntent);
+    }
+
     public void emailSignIn(View view) {
 
         progressDialog.show();
@@ -175,6 +180,9 @@ public class MainActivity extends AppCompatActivity {
 
         String email = emailText.getText().toString();
         String password = passwordText.getText().toString();
+
+        email = email.trim();
+        password = password.trim();
 
         if (email.isEmpty() || password.isEmpty())
         {
@@ -218,5 +226,8 @@ public class MainActivity extends AppCompatActivity {
         FirebaseAuth.getInstance().signOut();
     }
 
-
+    public void goToSingleUser(View view)
+    {
+        updateUI();
+    }
 }

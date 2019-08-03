@@ -23,11 +23,6 @@ import android.view.Menu;
 import android.widget.Toast;
 
 import com.facebook.login.LoginManager;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -46,8 +41,6 @@ public class SingleUserActivity extends AppCompatActivity
     StorageReference ref;
 
     private FirebaseAuth mAuth;
-
-    GoogleSignInClient mGoogleSignInClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,24 +67,7 @@ public class SingleUserActivity extends AppCompatActivity
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
-
-        // Configure sign-in to request the user's ID, email address, and basic
-        // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build();
-
-        // Build a GoogleSignInClient with the options specified by gso.
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
-        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
-        if (acct != null) {
-            String personName = acct.getDisplayName();
-            String personEmail = acct.getEmail();
-            String personId = acct.getId();
-            Uri personPhoto = acct.getPhotoUrl();
-        }
-          displaySelectedScreen(R.id.nav_about);
+        displaySelectedScreen(R.id.nav_about);
     }
 
     @Override
@@ -209,7 +185,7 @@ public class SingleUserActivity extends AppCompatActivity
 
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/plain");
-            String shareBody = "Here is the link download to InNerve app. It is a hackathon conducted by Army Institute"+
+            String shareBody = "Here is the link to download to InNerve app. It is a hackathon conducted by Army Institute"+
                     " Of Technoloy Pune. For registration and further details you can download this app.";
              String shareSub = "InNerve App";
              intent.putExtra(Intent.EXTRA_SUBJECT,shareSub);
@@ -218,33 +194,29 @@ public class SingleUserActivity extends AppCompatActivity
 
 
         }
-
-
-
-
         return true;
     }
 
     private void download() {
 
         storageReference = firebaseStorage.getInstance().getReference();
-          ref = storageReference.child("participant.pdf");
+        ref = storageReference.child("participant.pdf");
 
-          ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-              @Override
-              public void onSuccess(Uri uri) {
+        ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+          @Override
+          public void onSuccess(Uri uri) {
 
-                  String url =uri.toString();
+              String url =uri.toString();
 
-                  downloadFile(SingleUserActivity.this,"participant",".pdf",DIRECTORY_DOWNLOADS,url) ;
+              downloadFile(SingleUserActivity.this,"participant",".pdf",DIRECTORY_DOWNLOADS,url) ;
 
-              }
-          }).addOnFailureListener(new OnFailureListener() {
-              @Override
-              public void onFailure(@NonNull Exception e) {
-
-              }
-          });
+          }
+        }).addOnFailureListener(new OnFailureListener() {
+          @Override
+          public void onFailure(@NonNull Exception e) {
+              Toast.makeText(SingleUserActivity.this, "Failed to download pdf", Toast.LENGTH_SHORT);
+          }
+        });
     }
 
     private void downloadFile(Context context , String filename ,String fileExtension , String destinationDirector , String url) {
@@ -262,14 +234,6 @@ public class SingleUserActivity extends AppCompatActivity
 
 
     private void signOut() {
-        mGoogleSignInClient.signOut()
-                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(SingleUserActivity.this, "Signed out successfully", Toast.LENGTH_LONG).show();
-                        finish();
-                    }
-                });
 
         mAuth.signOut();
         LoginManager.getInstance().logOut();
@@ -292,11 +256,8 @@ public class SingleUserActivity extends AppCompatActivity
     }
 
     private void updateUI() {
-
-
         Intent accountIntent = new Intent(SingleUserActivity.this,MainActivity.class);
         startActivity(accountIntent);
         finish();
-
     }
 }

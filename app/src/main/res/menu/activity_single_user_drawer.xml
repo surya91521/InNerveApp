@@ -23,7 +23,7 @@
         <item
             android:id="@+id/nav_down"
             android:icon="@drawable/ic_people"
-            android:title="Downlaod_Bronchure" />
+            android:title="Download Brochure" />
     </group>
 
     <item android:title="Communicate">

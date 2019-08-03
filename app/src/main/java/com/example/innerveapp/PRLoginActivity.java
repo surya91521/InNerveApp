@@ -5,8 +5,10 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.util.Patterns;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,6 +19,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.view.Menu;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -28,6 +31,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
 
+import static com.example.innerveapp.R.id.action_sign_out;
+
 public class PRLoginActivity extends AppCompatActivity{
 
     private static final Pattern NAME_PATTERN = Pattern.compile("^[\\p{L} .'-]+$");
@@ -37,6 +42,7 @@ public class PRLoginActivity extends AppCompatActivity{
     private TextInputLayout textInputCollege;
     private TextInputLayout textInputpNumber;
     private TextInputLayout textInputVolunteer;
+    private TextInputLayout textInputReview;
     private RadioGroup paymentMode;
     private Spinner spinner;
 
@@ -54,6 +60,9 @@ public class PRLoginActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prlogin);
+
+        Toolbar myToolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(myToolbar);
 
         userCount.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
@@ -79,6 +88,7 @@ public class PRLoginActivity extends AppCompatActivity{
         textInputCollege = findViewById(R.id.colleges);
         textInputpNumber = findViewById(R.id.phones);
         textInputVolunteer = findViewById(R.id.volunteers);
+        textInputReview = findViewById(R.id.review);
         paymentMode = findViewById(R.id.paymentMethod);
 
         second = findViewById(R.id.secondTeam);
@@ -103,6 +113,24 @@ public class PRLoginActivity extends AppCompatActivity{
 
         textInputVolunteer.getEditText().setText(getIntent().getStringExtra("prname"));
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.pr_menu, menu);
+        return true;
+    }
+
+    /*@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case action_sign_out: {
+                // do your sign-out stuff
+                break;
+            }
+            // case blocks for other MenuItems (if any)
+        }
+        return true;
+    } */
 
     private boolean validateEmail()
     {
@@ -171,6 +199,13 @@ public class PRLoginActivity extends AppCompatActivity{
         participant.put("number", textInputpNumber.getEditText().getText().toString());
         participant.put("pr", textInputVolunteer.getEditText().getText().toString());
 
+        String review = textInputReview.getEditText().getText().toString();
+
+        if(!review.isEmpty())
+        {
+            participant.put("review", review);
+        }
+
         int payid = paymentMode.getCheckedRadioButtonId();
 
         if(payid == R.id.cashId)
@@ -179,7 +214,10 @@ public class PRLoginActivity extends AppCompatActivity{
         }
         else if(payid == R.id.payId)
         {
-            participant.put("paymentMethod", "PayTM/Pay");
+            participant.put("paymentMethod", "PayTM");
+        }else if(payid == R.id.upiId)
+        {
+            participant.put("paymentMethod", "BHIM UPI");
         }
 
         // add team members
