@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
-    user = mAuth.getCurrentUser();
+        user = mAuth.getCurrentUser();
         callbackManager = CallbackManager.Factory.create();
 
         if(user == null)
@@ -173,6 +173,9 @@ public class MainActivity extends AppCompatActivity {
 
         String email = emailText.getText().toString();
         String password = passwordText.getText().toString();
+
+        email = email.trim();
+        password = password.trim();
 
         if (email.isEmpty() || password.isEmpty())
         {

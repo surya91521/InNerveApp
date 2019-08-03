@@ -21,7 +21,11 @@
             android:value="28.0.0"
             tools:replace="android:value" />
 
-        <activity android:name=".PRLoginActivity" />
+        <activity
+            android:name=".PRLoginActivity"
+            android:label="@string/pr_login_label"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
         <activity
             android:name=".SingleUserActivity"
             android:label="@string/title_activity_single_user"
