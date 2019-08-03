@@ -30,16 +30,13 @@
                 <ImageView
                     android:id="@+id/imageView8"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:foregroundGravity="fill"
+                    android:layout_height="421dp"
                     app:srcCompat="@drawable/auto" />
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="15dp"
@@ -49,7 +46,7 @@
                 <ImageView
                     android:id="@+id/imageView7"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="421dp"
                     app:srcCompat="@drawable/ai" />
             </android.support.v7.widget.CardView>
 
@@ -65,7 +62,7 @@
                 <ImageView
                     android:id="@+id/imageView6"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="421dp"
                     app:srcCompat="@drawable/sec" />
             </android.support.v7.widget.CardView>
 
@@ -81,7 +78,7 @@
                 <ImageView
                     android:id="@+id/imageView5"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="421dp"
                     app:srcCompat="@drawable/scity" />
             </android.support.v7.widget.CardView>
 
@@ -97,7 +94,7 @@
                 <ImageView
                     android:id="@+id/imageView4"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="421dp"
                     android:background="#ECE9F0"
                     app:srcCompat="@drawable/health" />
             </android.support.v7.widget.CardView>
@@ -115,7 +112,7 @@
                 <ImageView
                     android:id="@+id/imageView3"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="#040405"
                     app:srcCompat="@drawable/blockchain" />
 
