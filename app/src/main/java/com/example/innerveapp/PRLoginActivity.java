@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.view.Menu;
 
+import com.facebook.login.LoginManager;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
@@ -340,4 +341,6 @@ public class PRLoginActivity extends AppCompatActivity{
 
         return validated;
     }
+
+
 }

@@ -58,8 +58,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         // Initialize Firebase Auth
 
-          progressDialog = new ProgressDialog(this);
-          progressDialog.setMessage("Loading");
+
+        progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog.setMessage("Loading");
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -137,13 +138,15 @@ public class MainActivity extends AppCompatActivity {
                 addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
                         if(task.isSuccessful())
                         {
+                            progressDialog.cancel();
                             FirebaseUser user = mAuth.getCurrentUser();
                             loginButton.setEnabled(true);
                             updateUI(user);
                         }else{
-
+                             progressDialog.cancel();
                             Toast.makeText(MainActivity.this,"Could not register to firebase",Toast.LENGTH_SHORT).show();
                             loginButton.setEnabled(true);
 
@@ -186,6 +189,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (email.isEmpty() || password.isEmpty())
         {
+            progressDialog.cancel();
             Toast.makeText(MainActivity.this, "Empty field, please enter you email and password",
                     Toast.LENGTH_SHORT).show();
             return;
@@ -195,6 +199,8 @@ public class MainActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
+
                         if (task.isSuccessful()) {
 
                             progressDialog.cancel();
