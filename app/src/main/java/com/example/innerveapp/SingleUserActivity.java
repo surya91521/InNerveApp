@@ -237,8 +237,9 @@ public class SingleUserActivity extends AppCompatActivity
 
         mAuth.signOut();
         LoginManager.getInstance().logOut();
-        Intent accountIntent = new Intent(SingleUserActivity.this,MainActivity.class);
-        startActivity(accountIntent);
+        //Intent accountIntent = new Intent(SingleUserActivity.this,MainActivity.class);
+       // startActivity(accountIntent);
+        finish();
 
     }
 
@@ -249,15 +250,15 @@ public class SingleUserActivity extends AppCompatActivity
         FirebaseUser currentUser = mAuth.getCurrentUser();
         //updateUI(currentUser);
 
-        if(currentUser==null)
-        {
-            updateUI();
-        }
+        //if(currentUser==null)
+        //{
+        //    updateUI();
+        //}
     }
 
     private void updateUI() {
-        Intent accountIntent = new Intent(SingleUserActivity.this,MainActivity.class);
-        startActivity(accountIntent);
+        //Intent accountIntent = new Intent(SingleUserActivity.this,MainActivity.class);
+        //startActivity(accountIntent);
         finish();
     }
 }
