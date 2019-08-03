@@ -26,4 +26,7 @@ public class Theme extends Fragment {
         return inflater.inflate(R.layout.theme, container, false);
 
     }
+
+
+
 }
