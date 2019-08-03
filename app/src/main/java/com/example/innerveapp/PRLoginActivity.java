@@ -37,6 +37,7 @@ public class PRLoginActivity extends AppCompatActivity{
     private TextInputLayout textInputCollege;
     private TextInputLayout textInputpNumber;
     private TextInputLayout textInputVolunteer;
+    private TextInputLayout textInputReview;
     private RadioGroup paymentMode;
     private Spinner spinner;
 
@@ -79,6 +80,7 @@ public class PRLoginActivity extends AppCompatActivity{
         textInputCollege = findViewById(R.id.colleges);
         textInputpNumber = findViewById(R.id.phones);
         textInputVolunteer = findViewById(R.id.volunteers);
+        textInputReview = findViewById(R.id.review);
         paymentMode = findViewById(R.id.paymentMethod);
 
         second = findViewById(R.id.secondTeam);
@@ -171,6 +173,13 @@ public class PRLoginActivity extends AppCompatActivity{
         participant.put("number", textInputpNumber.getEditText().getText().toString());
         participant.put("pr", textInputVolunteer.getEditText().getText().toString());
 
+        String review = textInputReview.getEditText().getText().toString();
+
+        if(!review.isEmpty())
+        {
+            participant.put("review", review);
+        }
+
         int payid = paymentMode.getCheckedRadioButtonId();
 
         if(payid == R.id.cashId)
@@ -179,7 +188,10 @@ public class PRLoginActivity extends AppCompatActivity{
         }
         else if(payid == R.id.payId)
         {
-            participant.put("paymentMethod", "PayTM/Pay");
+            participant.put("paymentMethod", "PayTM");
+        }else if(payid == R.id.upiId)
+        {
+            participant.put("paymentMethod", "BHIM UPI");
         }
 
         // add team members

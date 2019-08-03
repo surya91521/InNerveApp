@@ -160,7 +160,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="PayTM/Pay (QR)" />
+                    android:text="PayTM (QR)" />
+
+                <RadioButton
+                    android:id="@+id/upiId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="BHIM UPI (QR)" />
             </RadioGroup>
 
             <android.support.design.widget.TextInputLayout
@@ -174,6 +181,20 @@
                     android:layout_height="wrap_content"
                     android:hint="PR volunteer's name"
                     android:inputType="textPersonName"
+                    app:errorEnabled="true" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/review"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter review (Optional)"
+                    android:inputType="textLongMessage"
                     app:errorEnabled="true" />
             </android.support.design.widget.TextInputLayout>
 
