@@ -45,7 +45,7 @@ public class PRLoginActivity extends AppCompatActivity{
     private TextInputLayout textInputCollege;
     private TextInputLayout textInputpNumber;
     private TextInputLayout textInputVolunteer;
-    private TextInputLayout textInputReview;
+    private TextInputLayout textInputRemark;
     private RadioGroup paymentMode;
     private Spinner spinner;
 
@@ -91,7 +91,7 @@ public class PRLoginActivity extends AppCompatActivity{
         textInputCollege = findViewById(R.id.colleges);
         textInputpNumber = findViewById(R.id.phones);
         textInputVolunteer = findViewById(R.id.volunteers);
-        textInputReview = findViewById(R.id.review);
+        textInputRemark= findViewById(R.id.remark);
         paymentMode = findViewById(R.id.paymentMethod);
 
         second = findViewById(R.id.secondTeam);
@@ -133,7 +133,8 @@ public class PRLoginActivity extends AppCompatActivity{
 
             }
             case action_report:
-                Toast.makeText(PRLoginActivity.this, "R E P O R T", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(PRLoginActivity.this, ReportActivity.class);
+                startActivity(intent);
                 break;
         }
 
@@ -196,6 +197,14 @@ public class PRLoginActivity extends AppCompatActivity{
         }
 
         saveToFireStore();
+
+        // clear all edit text
+        textInputName.getEditText().setText("");
+        textInputEmail.getEditText().setText("");
+        textInputpNumber.getEditText().setText("");
+        second.getEditText().setText("");
+        third.getEditText().setText("");
+        fourth.getEditText().setText("");
     }
 
     public void saveToFireStore()
@@ -207,11 +216,11 @@ public class PRLoginActivity extends AppCompatActivity{
         participant.put("number", textInputpNumber.getEditText().getText().toString());
         participant.put("pr", textInputVolunteer.getEditText().getText().toString());
 
-        String review = textInputReview.getEditText().getText().toString();
+        String remark = textInputRemark.getEditText().getText().toString();
 
-        if(!review.isEmpty())
+        if(!remark.isEmpty())
         {
-            participant.put("review", review);
+            participant.put("remark", remark);
         }
 
         int payid = paymentMode.getCheckedRadioButtonId();
