@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         }else {
-            Intent intent = new Intent (MainActivity.this,PRLoginActivity.class);
+            Intent intent = new Intent (MainActivity.this,SingleUserActivity.class);
             startActivity(intent);
         }
 

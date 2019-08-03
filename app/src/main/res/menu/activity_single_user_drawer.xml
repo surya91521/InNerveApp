@@ -22,7 +22,7 @@
             android:title="@string/menu_sponsors" />
         <item
             android:id="@+id/nav_down"
-            android:icon="@drawable/ic_people"
+            android:icon="@drawable/ic_download"
             android:title="Download Brochure" />
     </group>
 
