@@ -7,7 +7,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -49,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     CallbackManager callbackManager;
     LoginButton loginButton;
     FirebaseUser user;
-     ProgressDialog progressDialog;
+    ProgressDialog progressDialog;
 
 
     @Override
@@ -79,6 +81,20 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent (MainActivity.this,SingleUserActivity.class);
             startActivity(intent);
         }
+
+        EditText passwordText = (EditText) findViewById(R.id.passwordText);
+        final View submit_btn = findViewById(R.id.emailSignInBut);
+
+        passwordText.setOnEditorActionListener(new EditText.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if (i== EditorInfo.IME_ACTION_DONE) {
+                    submit_btn.performClick();
+                    return true;
+                }
+                return false;
+            }
+        });
 
     }
 
