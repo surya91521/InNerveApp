@@ -20,9 +20,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.facebook.login.LoginManager;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -41,6 +43,8 @@ public class SingleUserActivity extends AppCompatActivity
     StorageReference storageReference;
     StorageReference ref;
 
+    FirebaseUser currentUser;
+
     private FirebaseAuth mAuth;
 
 
@@ -51,17 +55,10 @@ public class SingleUserActivity extends AppCompatActivity
 
 
         mAuth = FirebaseAuth.getInstance();
+        currentUser= mAuth.getCurrentUser();
         setContentView(R.layout.activity_single_user);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -71,6 +68,8 @@ public class SingleUserActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         displaySelectedScreen(R.id.nav_about);
+
+        updateNavHeader();
     }
 
     @Override
@@ -90,20 +89,7 @@ public class SingleUserActivity extends AppCompatActivity
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     private void displaySelectedScreen(int id){
 
@@ -265,6 +251,20 @@ public class SingleUserActivity extends AppCompatActivity
         finish();
     }
 
+    public void updateNavHeader(){
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
+        TextView navUsername = headerView.findViewById(R.id.nav_username);
+        TextView navEmail = headerView.findViewById(R.id.nav_email);
+        ImageView navPhoto = headerView.findViewById(R.id.nav_photo);
+
+        navEmail.setText(currentUser.getEmail());
+        navUsername.setText(currentUser.getDisplayName());
+
+        Glide.with(this).load(currentUser.getPhotoUrl()).into(navPhoto);
+
+    }
 
 
 }
