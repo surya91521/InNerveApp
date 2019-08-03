@@ -20,6 +20,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.login.LoginManager;
@@ -42,9 +43,11 @@ public class SingleUserActivity extends AppCompatActivity
 
     private FirebaseAuth mAuth;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -261,4 +264,7 @@ public class SingleUserActivity extends AppCompatActivity
         //startActivity(accountIntent);
         finish();
     }
+
+
+
 }
