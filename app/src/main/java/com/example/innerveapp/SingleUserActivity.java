@@ -226,8 +226,8 @@ public class SingleUserActivity extends AppCompatActivity
 
         mAuth.signOut();
         LoginManager.getInstance().logOut();
-        //Intent accountIntent = new Intent(SingleUserActivity.this,MainActivity.class);
-       // startActivity(accountIntent);
+        Intent accountIntent = new Intent(SingleUserActivity.this,MainActivity.class);
+        startActivity(accountIntent);
         finish();
 
     }
