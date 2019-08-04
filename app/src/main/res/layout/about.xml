@@ -6,23 +6,15 @@
     android:layout_height="match_parent"
     android:background="@drawable/back">
 
-    <TextView
-        android:id="@+id/fb"
-        android:layout_width="384dp"
-        android:layout_height="529dp"
-        android:layout_marginStart="19dp"
-        android:layout_marginLeft="19dp"
-        android:layout_marginTop="109dp"
-        android:layout_marginEnd="19dp"
-        android:layout_marginRight="19dp"
-        android:layout_marginBottom="93dp"
-        android:gravity="center"
-        android:text="Innerve 2k19 Hackathon provides you the platform to showcase your ideas and technical skills at a recognized level. This is the perfect opportunity to get those brilliant ideas out of your amazing minds and onto the computer screens. Coming again this year Innerve brings you with more interesting and challenging problem statements than ever before. So get ready for Innerve 4.0 to exhilarate you with newer ideas,more rewards and a fun packed experience.  "
-        android:textColor="#090A0E"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="-146dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>
