@@ -276,10 +276,14 @@ public class SingleUserActivity extends AppCompatActivity
         TextView navEmail = headerView.findViewById(R.id.nav_email);
         ImageView navPhoto = headerView.findViewById(R.id.nav_photo);
 
-        navEmail.setText(currentUser.getEmail());
-        navUsername.setText(currentUser.getDisplayName());
-
-        Glide.with(this).load(currentUser.getPhotoUrl()).into(navPhoto);
+        try{
+            navEmail.setText(currentUser.getEmail());
+            navUsername.setText(currentUser.getDisplayName());
+            Glide.with(this).load(currentUser.getPhotoUrl()).into(navPhoto);
+        }catch (Exception e)
+        {
+            // currentUser is null
+        }
 
     }
 
