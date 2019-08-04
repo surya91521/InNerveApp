@@ -1,6 +1,8 @@
 package com.example.innerveapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -127,7 +129,7 @@ public class PRLoginActivity extends AppCompatActivity{
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case action_sign_out: {
-                FirebaseAuth.getInstance().signOut();
+                signOut();
                 finish();
                 break;
 
@@ -139,6 +141,24 @@ public class PRLoginActivity extends AppCompatActivity{
         }
 
         return true;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        checkIfCorrectActivity();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.user_preference), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("logged_in", true);
+        editor.putString("last_activity", "PRLoginActivity");
+        editor.commit();
     }
 
     private boolean validateEmail()
@@ -358,5 +378,36 @@ public class PRLoginActivity extends AppCompatActivity{
         return validated;
     }
 
+    public void signOut()
+    {
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.user_preference), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("logged_in", false);
+        editor.commit();
 
+        FirebaseAuth.getInstance().signOut();
+    }
+
+    public void checkIfCorrectActivity()
+    {
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.user_preference), Context.MODE_PRIVATE);
+        boolean loggedIn = sharedPreferences.getBoolean("logged_in", true);
+        String lastActivity = sharedPreferences.getString("last_activity", "MainActivity");
+
+        if(loggedIn)
+        {
+            if(lastActivity.equals("SingleLoginActivity"))
+            {
+                Intent intent = new Intent(PRLoginActivity.this, SingleUserActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+            }
+        }
+        else
+        {
+            Intent intent = new Intent(PRLoginActivity.this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
+    }
 }
