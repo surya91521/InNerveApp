@@ -1,5 +1,6 @@
 package com.example.innerveapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +15,8 @@ public class ReportActivity extends AppCompatActivity {
 
     public void submitReport(View view)
     {
-        // submit report on email
+        Intent intent = new Intent(Intent.ACTION_SEND);
+
         finish();
     }
 }
