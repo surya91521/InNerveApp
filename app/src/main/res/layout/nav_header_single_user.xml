@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_view"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/nav_header_height"
+    android:layout_height="wrap_content"
     android:background="@drawable/side_nav_bar"
     android:gravity="bottom"
     android:orientation="vertical"
@@ -15,8 +15,8 @@
 
     <ImageView
         android:id="@+id/nav_photo"
-        android:layout_width="148dp"
-        android:layout_height="108dp"
+        android:layout_width="152dp"
+        android:layout_height="145dp"
         android:contentDescription="@string/nav_header_desc"
         android:paddingTop="@dimen/nav_header_vertical_spacing" />
 

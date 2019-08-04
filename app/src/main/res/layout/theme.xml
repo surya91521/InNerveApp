@@ -26,17 +26,20 @@ tools:context=".Theme">
                 app:cardElevation="8dp">
 
                 <ImageView
-                    android:id="@+id/imageView8"
+                    android:id="@+id/auto"
                     android:layout_width="match_parent"
                     android:layout_height="421dp"
                     app:srcCompat="@drawable/auto" />
             </android.support.v7.widget.CardView>
 
             <TextView
-                android:id="@+id/auto"
+                android:id="@+id/aut"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Mission to help developers automate repetitive processes and to increase employee productivity. A world of devices connected by internet opens up opportunities for us that were previously unthinkable."
                 android:textColor="#0A0909"
                 android:textSize="25sp"
                 android:visibility="gone" />
