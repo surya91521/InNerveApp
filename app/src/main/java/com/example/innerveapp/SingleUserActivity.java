@@ -3,6 +3,7 @@ package com.example.innerveapp;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -52,7 +53,7 @@ public class SingleUserActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
+        checkIfCorrectActivity();
 
         mAuth = FirebaseAuth.getInstance();
         currentUser= mAuth.getCurrentUser();
@@ -89,7 +90,16 @@ public class SingleUserActivity extends AppCompatActivity
         return true;
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
 
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.user_preference), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("logged_in", true);
+        editor.putString("last_activity", "SingleUserActivity");
+        editor.commit();
+    }
 
     private void displaySelectedScreen(int id){
 
@@ -226,6 +236,12 @@ public class SingleUserActivity extends AppCompatActivity
 
         mAuth.signOut();
         LoginManager.getInstance().logOut();
+
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.user_preference), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("logged_in", false);
+        editor.commit();
+
         Intent accountIntent = new Intent(SingleUserActivity.this,MainActivity.class);
         startActivity(accountIntent);
         finish();
@@ -243,6 +259,7 @@ public class SingleUserActivity extends AppCompatActivity
         //{
         //    updateUI();
         //}
+        checkIfCorrectActivity();
     }
 
     private void updateUI() {
@@ -266,5 +283,26 @@ public class SingleUserActivity extends AppCompatActivity
 
     }
 
+    public void checkIfCorrectActivity()
+    {
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.user_preference), Context.MODE_PRIVATE);
+        boolean loggedIn = sharedPreferences.getBoolean("logged_in", false);
+        String lastActivity = sharedPreferences.getString("last_activity", "MainActivity");
 
+        if(loggedIn)
+        {
+            if(lastActivity.equals("PRLoginActivity"))
+            {
+                Intent intent = new Intent(SingleUserActivity.this, PRLoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+            }
+        }
+        else
+        {
+            Intent intent = new Intent(SingleUserActivity.this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
+    }
 }

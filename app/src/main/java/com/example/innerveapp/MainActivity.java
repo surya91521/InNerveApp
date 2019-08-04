@@ -1,7 +1,9 @@
 package com.example.innerveapp;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -69,7 +71,11 @@ public class MainActivity extends AppCompatActivity {
         user = mAuth.getCurrentUser();
         callbackManager = CallbackManager.Factory.create();
 
-        if(user == null)
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.user_preference), Context.MODE_PRIVATE);
+        boolean loggedIn = sharedPreferences.getBoolean("loggedIn", false);
+        String lastActivity = sharedPreferences.getString("last_activity", "MainActivity");
+
+        if(!loggedIn)
         {
             setContentView(R.layout.activity_main);
             FacebookSdk.sdkInitialize(getApplicationContext());
@@ -110,14 +116,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void log(String prname){
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.user_preference), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("logged_in", true);
+        editor.putString("last_activity", "PRLoginActivity");
+        editor.commit();
+
         Intent intent = new Intent(MainActivity.this, PRLoginActivity.class);
         intent.putExtra("prname", prname);
-        startActivity(intent);
-    }
-
-    public void googleSignIn(View view)
-    {
-        Intent intent = new Intent(MainActivity.this, SignInActivity.class);
         startActivity(intent);
     }
 
@@ -127,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(LoginResult loginResult) {
 
-                 loginButton.setEnabled(false);
+                loginButton.setEnabled(false);
                 handleFacebookToken(loginResult.getAccessToken());
 
             }
@@ -179,6 +185,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser user) {
 
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.user_preference), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("logged_in", true);
+        editor.putString("last_activity", "SingleUserActivity");
+        editor.commit();
+
         Intent accountIntent = new Intent(MainActivity.this,SingleUserActivity.class);
         startActivity(accountIntent);
         finish();
@@ -186,6 +198,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateUI()
     {
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.user_preference), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("logged_in", true);
+        editor.putString("last_activity", "SingleUserActivity");
+        editor.commit();
+
         Intent accountIntent = new Intent(MainActivity.this,SingleUserActivity.class);
         startActivity(accountIntent);
     }
@@ -239,12 +257,6 @@ public class MainActivity extends AppCompatActivity {
                         // ...
                     }
                 });
-    }
-
-    public void emailSignOut()
-    {
-
-        FirebaseAuth.getInstance().signOut();
     }
 
     public void goToSingleUser(View view)
