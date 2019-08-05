@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TimelineViewAdapter extends RecyclerView.Adapter<TimelineViewAdapter.TimelineViewHolder> {
@@ -25,6 +26,12 @@ public class TimelineViewAdapter extends RecyclerView.Adapter<TimelineViewAdapte
     {
         this.titles = titles;
         this.subtitles = subtitles;
+        mItems = new ArrayList<>();
+
+        for(int i=0;i<titles.length;i++)
+        {
+            mItems.add(new ClipData.Item(titles[i]));
+        }
     }
 
     @NonNull
