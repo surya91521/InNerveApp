@@ -3,4 +3,228 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bl">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/nav_photo6"
+                android:layout_width="152dp"
+                android:layout_height="145dp"
+                android:layout_marginTop="33dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginRight="24dp"
+                android:contentDescription="@string/nav_header_desc"
+                android:paddingTop="@dimen/nav_header_vertical_spacing"
+                android:src="@drawable/pat"
+                app:civ_border_color="#3008DF"
+                app:civ_border_width="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="151dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginLeft="17dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="Arpit Mishra
+                                  OSS Club Incharge"
+                android:textColor="#F8F407"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nav_photo" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/nav_photo5"
+                android:layout_width="152dp"
+                android:layout_height="145dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="34dp"
+                android:contentDescription="@string/nav_header_desc"
+                android:paddingTop="@dimen/nav_header_vertical_spacing"
+                android:src="@drawable/sha"
+                app:civ_border_color="#3008DF"
+                app:civ_border_width="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="151dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginRight="24dp"
+                android:gravity="center"
+                android:text="Shalini Negi
+                 OSS Club Incharge"
+                android:textColor="#F8F407"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nav_photo2" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/nav_photo4"
+                android:layout_width="152dp"
+                android:layout_height="145dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="36dp"
+                android:contentDescription="@string/nav_header_desc"
+                android:paddingTop="@dimen/nav_header_vertical_spacing"
+                android:src="@drawable/pa"
+                app:civ_border_color="#3008DF"
+                app:civ_border_width="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="151dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="center"
+                android:text="Shubham Singh
+                 InNerve Technical Head"
+                android:textColor="#F8F407"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nav_photo3" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/nav_photo3"
+                android:layout_width="152dp"
+                android:layout_height="145dp"
+                android:layout_marginTop="34dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginRight="24dp"
+                android:contentDescription="@string/nav_header_desc"
+                android:paddingTop="@dimen/nav_header_vertical_spacing"
+                android:src="@drawable/shu"
+                app:civ_border_color="#3008DF"
+                app:civ_border_width="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="147dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="9dp"
+                android:gravity="center"
+                android:text="Shailesh Kumar Sahu InNerve Management Head"
+                android:textColor="#F8F407"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nav_photo5" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/nav_photo"
+                android:layout_width="152dp"
+                android:layout_height="145dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="25dp"
+                android:contentDescription="@string/nav_header_desc"
+                android:paddingTop="@dimen/nav_header_vertical_spacing"
+                android:src="@drawable/ar"
+                app:civ_border_color="#3008DF"
+                app:civ_border_width="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="151dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="131dp"
+                android:layout_marginLeft="131dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="130dp"
+                android:layout_marginRight="130dp"
+                android:gravity="center"
+                android:text="Shivam Pathak
+                InNerve Marketing Head"
+                android:textColor="#F8F407"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nav_photo1" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/nav_photo2"
+                android:layout_width="152dp"
+                android:layout_height="145dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginRight="24dp"
+                android:contentDescription="@string/nav_header_desc"
+                android:paddingTop="@dimen/nav_header_vertical_spacing"
+                android:src="@drawable/sh"
+                app:civ_border_color="#3008DF"
+                app:civ_border_width="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="151dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="11dp"
+                android:gravity="center"
+                android:text="Anup Kadam
+                              OSS Club Faculty Incharge"
+                android:textColor="#F8F407"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nav_photo4" />
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/nav_photo1"
+                android:layout_width="152dp"
+                android:layout_height="145dp"
+                android:layout_marginStart="130dp"
+                android:layout_marginLeft="130dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="130dp"
+                android:layout_marginRight="130dp"
+                android:contentDescription="@string/nav_header_desc"
+                android:paddingTop="@dimen/nav_header_vertical_spacing"
+                android:src="@drawable/sir"
+                app:civ_border_color="#3008DF"
+                app:civ_border_width="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="148dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginRight="24dp"
+                android:gravity="center"
+                android:text="Shivam Pathak
+                InNerve Marketing Head"
+                android:textColor="#F8F407"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nav_photo6" />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

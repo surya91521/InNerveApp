@@ -28,7 +28,27 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="20dp"
-                android:text="Innerve 2k19 Hackathon provides you the platform to showcase your ideas and technical skills at a recognized level. This is the perfect opportunity to get those brilliant ideas out of your amazing minds and onto the computer screens. Coming again this year Innerve brings you with more interesting and challenging problem statements than ever before. So get ready for Innerve 4.0 to exhilarate you with newer ideas,more rewards and a fun packed experience."
+                android:text="Innerve 2k19 Hackathon provides you the platform to showcase your ideas and technical skills at a recognized level. This is the perfect opportunity to get those brilliant ideas out of your amazing minds and onto the computer screens."
+                android:textColor="#F1EEF5"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="20dp"
+                android:text="Coming again this year Innerve brings you with more interesting and challenging problem statements than ever before."
+                android:textColor="#F1EEF5"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="20dp"
+                android:text="So get ready for Innerve 4.0 to exhilarate you with newer ideas,more rewards and a fun packed experience."
                 android:textColor="#F1EEF5"
                 android:textSize="24sp" />
         </LinearLayout>
