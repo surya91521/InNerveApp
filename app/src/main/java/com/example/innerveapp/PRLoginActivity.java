@@ -3,6 +3,7 @@ package com.example.innerveapp;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -23,7 +24,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.view.Menu;
 
+import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
+import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,6 +34,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -65,6 +69,20 @@ public class PRLoginActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prlogin);
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        boolean loggedIn = sharedPreferences.getBoolean("logged_in", false);
+        String lastActivity = sharedPreferences.getString("last_activity", "MainActivity");
+
+        if(!loggedIn)
+        {
+            finish();
+        }
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("logged_in", true);
+        editor.putString("last_activity", "PRLoginActivity");
+        editor.commit();
 
         Toolbar myToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
@@ -153,12 +171,6 @@ public class PRLoginActivity extends AppCompatActivity{
     @Override
     protected void onPause() {
         super.onPause();
-
-        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.user_preference), Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("logged_in", true);
-        editor.putString("last_activity", "PRLoginActivity");
-        editor.commit();
     }
 
     private boolean validateEmail()
@@ -380,9 +392,10 @@ public class PRLoginActivity extends AppCompatActivity{
 
     public void signOut()
     {
-        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.user_preference), Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("logged_in", false);
+        editor.putString("last_activity", "MainActivity");
         editor.commit();
 
         FirebaseAuth.getInstance().signOut();
@@ -390,7 +403,7 @@ public class PRLoginActivity extends AppCompatActivity{
 
     public void checkIfCorrectActivity()
     {
-        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.user_preference), Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         boolean loggedIn = sharedPreferences.getBoolean("logged_in", true);
         String lastActivity = sharedPreferences.getString("last_activity", "MainActivity");
 
