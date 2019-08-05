@@ -31,18 +31,6 @@ tools:context=".Theme">
                     app:srcCompat="@drawable/auto" />
             </android.support.v7.widget.CardView>
 
-            <TextView
-                android:id="@+id/Auto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:text="Mission to help developers automate repetitive processes and to increase employee productivity. A world of devices connected by internet opens up opportunities for us that were previously unthinkable."
-                android:textColor="#0A0909"
-                android:textSize="25sp"
-                android:visibility="gone" />
-
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
