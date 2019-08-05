@@ -31,7 +31,7 @@
             android:background="#11000000"
             android:drawableLeft="@drawable/ic_action_user"
             android:ems="10"
-            android:hint="Email"
+            android:hint="Admin Log In (Email)"
             android:inputType="textPersonName"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
@@ -98,7 +98,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="6dp"
             android:onClick="goToSingleUser"
-            android:text="Go to Single User"
+            android:text="For Candidate Registration"
             android:textColor="#F4F1F5"
             android:textColorHint="#F8F4F5" />
 
