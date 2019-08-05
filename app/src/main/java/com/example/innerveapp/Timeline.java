@@ -27,9 +27,18 @@ public class Timeline extends Fragment {
 
         layoutManager = new LinearLayoutManager(view.getContext());
         recyclerView.setLayoutManager(layoutManager);
+        int n = 6;
 
-        String[] titles = new String[]{"Timeline 1", "Timeline 2"};
-        String[] subtitles = new String[]{"Sub 1", "Sub 2"};
+        String[] titles = new String[n];
+        String[] subtitles = new String[n];
+
+        for(int i=0;i<n;i++)
+        {
+            String titleName = "timelinet" + (i+1);
+            String subName = "timelines" + (i+1);
+            titles[i] = getResources().getString(getResources().getIdentifier(titleName, "string", getActivity().getPackageName()));
+            subtitles[i] = getResources().getString(getResources().getIdentifier(subName, "string", getActivity().getPackageName()));
+        }
 
         adapter = new TimelineViewAdapter(titles, subtitles);
         recyclerView.setAdapter(adapter);

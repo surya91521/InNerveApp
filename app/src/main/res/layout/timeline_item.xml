@@ -9,11 +9,14 @@
     <ImageView
         android:layout_width="36dp"
         android:layout_height="36dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
         android:layout_marginRight="24dp"
-        android:background="@drawable/innervec"
+        android:background="@color/colorPrimary"
         android:padding="4dp"
         android:src="@drawable/ic_place"
-        android:tint="@android:color/white" />
+        android:tint="@android:color/white"
+        android:layout_gravity="center"/>
 
     <!-- the blue line -->
     <FrameLayout
@@ -26,7 +29,7 @@
         <View
             android:layout_width="11dp"
             android:layout_height="11dp"
-            android:background="@drawable/circle"/>
+            android:background="@drawable/circle" />
 
     </FrameLayout>
 

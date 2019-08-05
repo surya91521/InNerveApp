@@ -27,4 +27,16 @@
         <item>Four</item>
         <item>Not Decided</item>
     </string-array>
+    <string name="timelinet1">Recruitment of Our team</string>
+    <string name="timelines1">The managing team was formed of first, second and third year students</string>
+    <string name="timelinet2">Theme announced</string>
+    <string name="timelines2">The final theme and problem statement for developement in hackathon announced </string>
+    <string name="timelinet3">Registration started</string>
+    <string name="timelines3">The registration procedure started for joining the INNERVE 2k18 hackathon</string>
+    <string name="timelinet4">Day One</string>
+    <string name="timelines4">The idea presentation and selection of teams for second round</string>
+    <string name="timelinet5">Day two</string>
+    <string name="timelines5">Start of 24 hours hackathon.</string>
+    <string name="timelinet6">The D day:final day</string>
+    <string name="timelines6">End of long 24 hours hackathon , prize distribution and tech talk</string>
 </resources>
