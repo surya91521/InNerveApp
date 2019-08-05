@@ -223,6 +223,7 @@ public class ParticipantRegistration extends AppCompatActivity {
             @Override
             public void onSuccess(Void aVoid) {
                 Toast.makeText(ParticipantRegistration.this, "Registration saved successfully", Toast.LENGTH_SHORT).show();
+                finish();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
