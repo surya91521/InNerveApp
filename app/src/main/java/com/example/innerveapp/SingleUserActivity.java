@@ -247,6 +247,7 @@ public class SingleUserActivity extends AppCompatActivity
 
         mAuth.signOut();
         LoginManager.getInstance().logOut();
+        FirebaseAuth.getInstance().signOut();
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor editor = sharedPreferences.edit();

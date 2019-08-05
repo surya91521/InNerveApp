@@ -31,6 +31,8 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
@@ -40,6 +42,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.OAuthProvider;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -277,5 +280,64 @@ public class MainActivity extends AppCompatActivity {
         updateUI();
     }
 
+    public void githubLogin(View view)
+    {
+        // github login
+        OAuthProvider.Builder provider = OAuthProvider.newBuilder("github.com");
+        // Target specific email with login hint.
+        provider.addCustomParameter("login", "your-email@gmail.com");
 
+        Task<AuthResult> pendingResultTask = mAuth.getPendingAuthResult();
+        if (pendingResultTask != null) {
+            // There's something already here! Finish the sign-in for your user.
+            pendingResultTask
+                    .addOnSuccessListener(
+                            new OnSuccessListener<AuthResult>() {
+                                @Override
+                                public void onSuccess(AuthResult authResult) {
+                                    // User is signed in.
+                                    // IdP data available in
+                                    // authResult.getAdditionalUserInfo().getProfile().
+                                    // The OAuth access token can also be retrieved:
+                                    // authResult.getCredential().getAccessToken().
+                                    updateUI();
+                                }
+                            })
+                    .addOnFailureListener(
+                            new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    // Handle failure.
+                                    e.printStackTrace();
+                                    Toast.makeText(MainActivity.this, "Github login failed.", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+        } else {
+            // There's no pending result so you need to start the sign-in flow.
+            mAuth
+                    .startActivityForSignInWithProvider(this, provider.build())
+                    .addOnSuccessListener(
+                            new OnSuccessListener<AuthResult>() {
+                                @Override
+                                public void onSuccess(AuthResult authResult) {
+                                    // User is signed in.
+                                    // IdP data available in
+                                    // authResult.getAdditionalUserInfo().getProfile().
+                                    // The OAuth access token can also be retrieved:
+                                    // authResult.getCredential().getAccessToken().
+                                    updateUI();
+                                }
+                            })
+                    .addOnFailureListener(
+                            new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    // Handle failure.
+                                    e.printStackTrace();
+                                    Toast.makeText(MainActivity.this, "Github login failed.", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
+        }
+    }
 }

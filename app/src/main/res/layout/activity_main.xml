@@ -102,6 +102,20 @@
             android:textColor="#F4F1F5"
             android:textColorHint="#F8F4F5" />
 
+        <TextView
+            android:id="@+id/githubBut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/linearLayout"
+            android:layout_below="@id/passwordText"
+            android:layout_centerHorizontal="false"
+            android:layout_marginTop="31dp"
+            android:layout_marginBottom="6dp"
+            android:onClick="githubLogin"
+            android:text="Github Login"
+            android:textColor="#F4F1F5"
+            android:textColorHint="#F8F4F5" />
+
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="208dp"
