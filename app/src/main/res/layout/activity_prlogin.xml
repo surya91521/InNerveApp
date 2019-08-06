@@ -13,6 +13,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/grey"
         tools:context=".PRLoginActivity">
 
         <android.support.design.widget.AppBarLayout
@@ -22,7 +23,7 @@
             android:theme="@style/AppTheme.AppBarOverlay"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" >
+            app:layout_constraintTop_toTopOf="parent">
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -53,6 +54,7 @@
                     android:id="@+id/names"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColorHint="#F5F0F3"
                     app:errorEnabled="true">
 
                     <android.support.design.widget.TextInputEditText
@@ -60,6 +62,8 @@
                         android:layout_height="wrap_content"
                         android:hint="Participant's name"
                         android:inputType="textPersonName"
+                        android:textColor="#FAF6F6"
+                        android:textColorHint="#FCF9F9"
                         app:errorEnabled="true" />
                 </android.support.design.widget.TextInputLayout>
 
@@ -67,6 +71,7 @@
                     android:id="@+id/emails"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColorHint="#FDFAFC"
                     app:errorEnabled="true">
 
                     <android.support.design.widget.TextInputEditText
@@ -74,6 +79,8 @@
                         android:layout_height="wrap_content"
                         android:hint="Email ID"
                         android:inputType="textEmailAddress"
+                        android:textColor="#ECEBEE"
+                        android:textColorHint="#F1F3F1"
                         app:errorEnabled="true" />
                 </android.support.design.widget.TextInputLayout>
 
@@ -81,6 +88,7 @@
                     android:id="@+id/colleges"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColorHint="#F0EEF1"
                     app:errorEnabled="true">
 
                     <android.support.design.widget.TextInputEditText
@@ -88,6 +96,8 @@
                         android:layout_height="wrap_content"
                         android:hint="College name"
                         android:inputType="textImeMultiLine"
+                        android:textColor="#F8F6F7"
+                        android:textColorHint="#ECEBEE"
                         app:errorEnabled="true" />
                 </android.support.design.widget.TextInputLayout>
 
@@ -95,6 +105,7 @@
                     android:id="@+id/phones"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColorHint="#FAF6F8"
                     app:errorEnabled="true">
 
                     <android.support.design.widget.TextInputEditText
@@ -102,6 +113,8 @@
                         android:layout_height="wrap_content"
                         android:hint="Phone Number"
                         android:inputType="phone"
+                        android:textColor="#F3E7ED"
+                        android:textColorHint="#F7F0F3"
                         app:errorEnabled="true" />
                 </android.support.design.widget.TextInputLayout>
 
@@ -112,18 +125,22 @@
                     android:layout_gravity="left"
                     android:gravity="center"
                     android:text="Team Count :-"
+                    android:textColor="#F3F3F5"
+                    android:textColorHint="#F2F2F5"
                     android:textSize="14sp" />
 
                 <Spinner
                     android:id="@+id/spinner"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
+                    android:background="@android:color/white"
                     android:gravity="center_horizontal" />
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/secondTeam"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColorHint="#F7F6F8"
                     android:visibility="gone"
                     app:errorEnabled="true">
 
@@ -132,6 +149,8 @@
                         android:layout_height="wrap_content"
                         android:hint="Second team member name"
                         android:inputType="textPersonName"
+                        android:textColor="#F8F5F7"
+                        android:textColorHint="#F3EAEF"
                         app:errorEnabled="true" />
                 </android.support.design.widget.TextInputLayout>
 
@@ -139,6 +158,7 @@
                     android:id="@+id/thirdTeam"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColorHint="#FCF4F8"
                     android:visibility="gone"
                     app:errorEnabled="true">
 
@@ -147,6 +167,8 @@
                         android:layout_height="wrap_content"
                         android:hint="Third team member name"
                         android:inputType="textPersonName"
+                        android:textColor="#FCF6F9"
+                        android:textColorHint="#F1E9E9"
                         app:errorEnabled="true" />
                 </android.support.design.widget.TextInputLayout>
 
@@ -154,6 +176,7 @@
                     android:id="@+id/fourthTeam"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColorHint="#F8F3F6"
                     android:visibility="gone"
                     app:errorEnabled="true">
 
@@ -162,6 +185,8 @@
                         android:layout_height="wrap_content"
                         android:hint="Fourth team member name"
                         android:inputType="textPersonName"
+                        android:textColor="#EEE8EB"
+                        android:textColorHint="#F1F5EF"
                         app:errorEnabled="true" />
                 </android.support.design.widget.TextInputLayout>
 
@@ -170,7 +195,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Mode of payment :-" />
+                    android:text="Mode of payment :-"
+                    android:textColor="#ECECF0"
+                    android:textColorHint="#EEECF0" />
 
                 <RadioGroup
                     android:id="@+id/paymentMethod"
@@ -183,27 +210,34 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Cash" />
+                        android:text="Cash"
+                        app:buttonTint="#F8F5F7"
+                        android:textColor="#FAF4F7" />
 
                     <RadioButton
                         android:id="@+id/payId"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="PayTM (QR)" />
+                        android:text="PayTM (QR)"
+                        app:buttonTint="#F8F5F7"
+                        android:textColor="#F8F5F7" />
 
                     <RadioButton
                         android:id="@+id/upiId"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="BHIM UPI (QR)" />
+                        android:text="BHIM UPI (QR)"
+                        app:buttonTint="#F8F5F7"
+                        android:textColor="#F1EBEE" />
                 </RadioGroup>
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/volunteers"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColorHint="#EAE6EE"
                     app:errorEnabled="true">
 
                     <android.support.design.widget.TextInputEditText
@@ -211,6 +245,8 @@
                         android:layout_height="wrap_content"
                         android:hint="PR volunteer's name"
                         android:inputType="textPersonName"
+                        android:textColor="#F1EEF0"
+                        android:textColorHint="#F8F6FA"
                         app:errorEnabled="true" />
                 </android.support.design.widget.TextInputLayout>
 
@@ -218,6 +254,7 @@
                     android:id="@+id/remark"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColorHint="#F5EFF2"
                     app:errorEnabled="true">
 
                     <android.support.design.widget.TextInputEditText
@@ -225,6 +262,8 @@
                         android:layout_height="wrap_content"
                         android:hint="Enter remark(Optional)"
                         android:inputType="textLongMessage"
+                        android:textColor="#F3EDF0"
+                        android:textColorHint="#F8F2F5"
                         app:errorEnabled="true" />
                 </android.support.design.widget.TextInputLayout>
 
