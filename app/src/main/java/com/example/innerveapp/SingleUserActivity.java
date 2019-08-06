@@ -209,7 +209,7 @@ public class SingleUserActivity extends AppCompatActivity
 
     private void download() {
 
-        storageReference = firebaseStorage.getInstance().getReference();
+        storageReference = FirebaseStorage.getInstance().getReference();
         ref = storageReference.child("participant.pdf");
 
         ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -224,6 +224,7 @@ public class SingleUserActivity extends AppCompatActivity
         }).addOnFailureListener(new OnFailureListener() {
           @Override
           public void onFailure(@NonNull Exception e) {
+              e.printStackTrace();
               Toast.makeText(SingleUserActivity.this, "Failed to download pdf", Toast.LENGTH_SHORT);
           }
         });
