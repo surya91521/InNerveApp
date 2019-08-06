@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ParticipantRegistration">
+    tools:context=".ParticipantRegistration"
+    android:background="@drawable/contactbackground">
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -167,7 +168,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="confirmInput"
-                android:text="Submit" />
+                android:text="Submit"
+                android:background="@drawable/button_bg_rounded"/>
 
         </LinearLayout>
     </ScrollView>
