@@ -5,16 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/fb"
-        android:layout_width="378dp"
-        android:layout_height="423dp"
-        android:gravity="center"
-        android:text="This is the page for Sponsors"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="410dp"
+        android:layout_height="735dp"
+        android:background="@android:color/black"
+        app:srcCompat="@drawable/coming"
+        tools:layout_editor_absoluteX="-3dp"
+        tools:layout_editor_absoluteY="-2dp" />
 </android.support.constraint.ConstraintLayout>

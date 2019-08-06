@@ -75,6 +75,23 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
+                android:id="@+id/drive"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#F7F2F5"
+                app:errorEnabled="true">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Drive Link"
+                    android:inputType="textEmailAddress"
+                    android:textColor="#F0EEF3"
+                    android:textColorHint="#F2EFF5"
+                    app:errorEnabled="true" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
                 android:id="@+id/phones"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
