@@ -123,6 +123,10 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
+        setContentView(R.layout.activity_main);
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        loginButton=(LoginButton)findViewById(R.id.login_button);
+        loginButton.setReadPermissions(Arrays.asList("email"));
         //updateUI(currentUser);
     }
 
@@ -209,7 +213,6 @@ public class MainActivity extends AppCompatActivity {
 
         Intent accountIntent = new Intent(MainActivity.this,SingleUserActivity.class);
         startActivity(accountIntent);
-        finish();
     }
 
     private void updateUI()
