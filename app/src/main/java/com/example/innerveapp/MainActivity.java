@@ -285,6 +285,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void githubLogin(View view)
     {
+        progressDialog.show();
         // github login
         OAuthProvider.Builder provider = OAuthProvider.newBuilder("github.com");
         // Target specific email with login hint.
@@ -298,6 +299,7 @@ public class MainActivity extends AppCompatActivity {
                             new OnSuccessListener<AuthResult>() {
                                 @Override
                                 public void onSuccess(AuthResult authResult) {
+                                    progressDialog.cancel();
                                     // User is signed in.
                                     // IdP data available in
                                     // authResult.getAdditionalUserInfo().getProfile().
@@ -310,6 +312,7 @@ public class MainActivity extends AppCompatActivity {
                             new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
+                                    progressDialog.cancel();
                                     // Handle failure.
                                     e.printStackTrace();
                                     Toast.makeText(MainActivity.this, "Github login failed.", Toast.LENGTH_SHORT).show();
@@ -323,6 +326,7 @@ public class MainActivity extends AppCompatActivity {
                             new OnSuccessListener<AuthResult>() {
                                 @Override
                                 public void onSuccess(AuthResult authResult) {
+                                    progressDialog.cancel();
                                     // User is signed in.
                                     // IdP data available in
                                     // authResult.getAdditionalUserInfo().getProfile().
@@ -335,6 +339,7 @@ public class MainActivity extends AppCompatActivity {
                             new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
+                                    progressDialog.cancel();
                                     // Handle failure.
                                     e.printStackTrace();
                                     Toast.makeText(MainActivity.this, "Github login failed.", Toast.LENGTH_SHORT).show();

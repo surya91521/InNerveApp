@@ -6,7 +6,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_about"
-            android:icon="@drawable/ic_home"
+            android:icon="@drawable/ic_home_black_24dp"
             android:title="Home" />
         <item
             android:id="@+id/nav_theme"
@@ -22,7 +22,7 @@
             android:title="@string/menu_sponsors" />
         <item
             android:id="@+id/nav_down"
-            android:icon="@drawable/ic_download"
+            android:icon="@drawable/ic_file_download"
             android:title="Download Brochure" />
 
     </group>
@@ -49,7 +49,7 @@
         <menu>
             <item
                 android:id="@+id/nav_share"
-                android:icon="@drawable/ic_share"
+                android:icon="@drawable/ic_share_black_24dp"
                 android:title="Share" />
             <item
                 android:id="@+id/nav_signout"
