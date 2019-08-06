@@ -175,7 +175,7 @@ public class SingleUserActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_theme) {
 
-        } else if(id==R.id.nav_down) {
+        } else if(id == R.id.nav_down) {
 
               download();
 
