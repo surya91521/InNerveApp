@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -81,6 +82,12 @@ public class SingleUserActivity extends AppCompatActivity
         displaySelectedScreen(R.id.nav_about);
 
         updateNavHeader();
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("logged_in", true);
+        editor.putString("last_activity", "SingleUserActivity");
+        editor.commit();
     }
 
     @Override
@@ -103,12 +110,6 @@ public class SingleUserActivity extends AppCompatActivity
     @Override
     protected void onPause() {
         super.onPause();
-
-        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.user_preference), Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("logged_in", true);
-        editor.putString("last_activity", "SingleUserActivity");
-        editor.commit();
     }
 
     private void displaySelectedScreen(int id){
@@ -246,14 +247,16 @@ public class SingleUserActivity extends AppCompatActivity
 
         mAuth.signOut();
         LoginManager.getInstance().logOut();
+        FirebaseAuth.getInstance().signOut();
 
-        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.user_preference), Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("logged_in", false);
+        editor.putString("last_activity", "MainActivity");
         editor.commit();
 
-        Intent accountIntent = new Intent(SingleUserActivity.this,MainActivity.class);
-        startActivity(accountIntent);
+        //Intent accountIntent = new Intent(SingleUserActivity.this,MainActivity.class);
+        //startActivity(accountIntent);
         finish();
 
     }
@@ -299,7 +302,7 @@ public class SingleUserActivity extends AppCompatActivity
 
     public void checkIfCorrectActivity()
     {
-        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.user_preference), Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         boolean loggedIn = sharedPreferences.getBoolean("logged_in", false);
         String lastActivity = sharedPreferences.getString("last_activity", "MainActivity");
 
