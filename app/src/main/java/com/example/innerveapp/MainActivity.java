@@ -79,6 +79,21 @@ public class MainActivity extends AppCompatActivity {
         boolean loggedIn = sharedPreferences.getBoolean("logged_in", false);
         String lastActivity = sharedPreferences.getString("last_activity", "MainActivity");
 
+        EditText passwordText = findViewById(R.id.passwordText);
+        final View submit_btn = findViewById(R.id.emailSignInBut);
+
+        passwordText.setOnEditorActionListener(new EditText.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if (i== EditorInfo.IME_ACTION_DONE) {
+                    submit_btn.performClick();
+                    return true;
+                }
+                return false;
+            }
+        });
+
+
         if(!loggedIn)
         {
             setContentView(R.layout.activity_main);
@@ -100,21 +115,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         }
-
-        EditText passwordText = (EditText) findViewById(R.id.passwordText);
-        final View submit_btn = findViewById(R.id.emailSignInBut);
-
-        passwordText.setOnEditorActionListener(new EditText.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                if (i== EditorInfo.IME_ACTION_DONE) {
-                    submit_btn.performClick();
-                    return true;
-                }
-                return false;
-            }
-        });
-
     }
 
 
