@@ -323,4 +323,12 @@ public class SingleUserActivity extends AppCompatActivity
             startActivity(intent);
         }
     }
+
+
+    public void themeToRegister(View view)
+    {
+        Intent intent = new Intent(SingleUserActivity.this, ParticipantRegistration.class);
+        intent.putExtra("theme", view.getTag().toString());
+        startActivity(intent);
+    }
 }
