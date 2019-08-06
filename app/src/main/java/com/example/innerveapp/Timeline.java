@@ -31,6 +31,7 @@ public class Timeline extends Fragment {
 
         String[] titles = new String[n];
         String[] subtitles = new String[n];
+        int[] icons = new int[n];
 
         for(int i=0;i<n;i++)
         {
@@ -38,9 +39,10 @@ public class Timeline extends Fragment {
             String subName = "timelines" + (i+1);
             titles[i] = getResources().getString(getResources().getIdentifier(titleName, "string", getActivity().getPackageName()));
             subtitles[i] = getResources().getString(getResources().getIdentifier(subName, "string", getActivity().getPackageName()));
+            icons[i] = getResources().getIdentifier("ic_icon" + (i+1), "drawable", getActivity().getPackageName());
         }
 
-        adapter = new TimelineViewAdapter(titles, subtitles);
+        adapter = new TimelineViewAdapter(titles, subtitles, icons);
         recyclerView.setAdapter(adapter);
     }
 
