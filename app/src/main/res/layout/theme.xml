@@ -24,6 +24,8 @@ tools:context=".Theme">
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
 
+
+
                 <ImageView
                     android:id="@+id/auto"
                     android:layout_width="match_parent"

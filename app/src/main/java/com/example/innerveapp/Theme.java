@@ -122,6 +122,8 @@ public class Theme extends Fragment {
         });
 
 
+
+
         getActivity().setTitle("Themes");
 
 
