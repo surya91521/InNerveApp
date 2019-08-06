@@ -27,6 +27,14 @@
         <item>Four</item>
         <item>Not Decided</item>
     </string-array>
+    <string-array name="Theme">
+        <item>Automation</item>
+        <item>Healthcare</item>
+        <item>AI / ML</item>
+        <item>Smart City</item>
+        <item>Cyber Security</item>
+        <item>Blockchain</item>
+    </string-array>
     <string name="timelinet1">Recruitment of Our team</string>
     <string name="timelines1">The managing team was formed of first, second and third year students</string>
     <string name="timelinet2">Theme announced</string>

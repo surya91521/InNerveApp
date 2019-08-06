@@ -43,6 +43,7 @@ public class ParticipantRegistration extends AppCompatActivity {
     private TextInputLayout textInputpNumber;
     private TextInputLayout textInputRemark;
     private Spinner spinner;
+    private Spinner theme;
 
     private TextInputLayout second;
     private TextInputLayout third;
@@ -101,6 +102,22 @@ public class ParticipantRegistration extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
                 showTeamMemberEditText(0);
+            }
+        });
+
+        theme = findViewById(R.id.spinner2);
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.Theme, android.R.layout.simple_spinner_item);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        theme.setAdapter(adapter1);
+        theme.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
     }
@@ -192,6 +209,10 @@ public class ParticipantRegistration extends AppCompatActivity {
         participant.put("self_registered", true);
 
         String remark = textInputRemark.getEditText().getText().toString();
+
+        String themeString = theme.getSelectedItem().toString();
+
+        participant.put("theme", themeString);
 
         if(!remark.isEmpty())
         {
