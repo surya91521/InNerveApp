@@ -15,6 +15,7 @@
         android:layout_marginRight="24dp"
         android:padding="4dp"
         android:src="@drawable/ic_place"
+        android:background="@drawable/circle_bg_timeline"
         android:tint="#000000"
         android:id="@+id/icon_timeline"/>
 
@@ -56,6 +57,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/item_subtitle"/>
+
+        <TextView
+            android:id="@+id/item_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_horizontal" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
 
         <!-- other views -->
 
