@@ -1,5 +1,6 @@
 package com.example.innerveapp;
 
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -136,7 +137,5 @@ public class Theme extends Fragment {
           return inflater.inflate(R.layout.theme, container, false);
 
     }
-
-
 
 }

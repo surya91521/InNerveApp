@@ -120,6 +120,15 @@ public class ParticipantRegistration extends AppCompatActivity {
 
             }
         });
+
+        Intent thisIntent = getIntent();
+        String themeExtra = thisIntent.getStringExtra("theme");
+
+        if(themeExtra != null)
+        {
+            int curTheme = Integer.parseInt(themeExtra);
+            theme.setSelection(curTheme);
+        }
     }
 
     @Override

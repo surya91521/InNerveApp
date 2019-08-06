@@ -41,7 +41,9 @@ tools:context=".Theme">
                     android:layout_gravity="bottom|center_horizontal"
                     android:layout_marginBottom="16dp"
                     android:paddingBottom="0dp"
-                    android:text="Go to theme" />
+                    android:text="Go to theme"
+                    android:onClick="themeToRegister"
+                    android:tag="0"/>
             </android.support.v7.widget.CardView>
 
             <TextView
@@ -80,7 +82,9 @@ tools:context=".Theme">
                     android:layout_gravity="bottom|center_horizontal"
                     android:layout_marginBottom="16dp"
                     android:paddingBottom="0dp"
-                    android:text="Go to theme"/>
+                    android:text="Go to theme"
+                    android:onClick="themeToRegister"
+                    android:tag="2"/>
             </android.support.v7.widget.CardView>
 
             <TextView
@@ -118,7 +122,9 @@ tools:context=".Theme">
                     android:layout_gravity="bottom|center_horizontal"
                     android:layout_marginBottom="16dp"
                     android:paddingBottom="0dp"
-                    android:text="Go to theme"/>
+                    android:text="Go to theme"
+                    android:onClick="themeToRegister"
+                    android:tag="4"/>
             </android.support.v7.widget.CardView>
 
             <TextView
@@ -156,7 +162,9 @@ tools:context=".Theme">
                     android:layout_gravity="bottom|center_horizontal"
                     android:layout_marginBottom="16dp"
                     android:paddingBottom="0dp"
-                    android:text="Go to theme"/>
+                    android:text="Go to theme"
+                    android:onClick="themeToRegister"
+                    android:tag="3"/>
             </android.support.v7.widget.CardView>
 
             <TextView
@@ -195,7 +203,9 @@ tools:context=".Theme">
                     android:layout_gravity="bottom|center_horizontal"
                     android:layout_marginBottom="16dp"
                     android:paddingBottom="0dp"
-                    android:text="Go to theme"/>
+                    android:text="Go to theme"
+                    android:onClick="themeToRegister"
+                    android:tag="1"/>
             </android.support.v7.widget.CardView>
 
             <TextView
@@ -235,7 +245,9 @@ tools:context=".Theme">
                     android:layout_gravity="bottom|center_horizontal"
                     android:layout_marginBottom="16dp"
                     android:paddingBottom="0dp"
-                    android:text="Go to theme"/>
+                    android:text="Go to theme"
+                    android:onClick="themeToRegister"
+                    android:tag="5"/>
 
 
             </android.support.v7.widget.CardView>
