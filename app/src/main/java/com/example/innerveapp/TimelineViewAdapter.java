@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -21,11 +22,15 @@ public class TimelineViewAdapter extends RecyclerView.Adapter<TimelineViewAdapte
 
     String[] titles;
     String[] subtitles;
+    int[] icons;
+    String[] dates;
 
-    public TimelineViewAdapter(String[] titles, String[] subtitles)
+    public TimelineViewAdapter(String[] titles, String[] subtitles, int[] icons, String[] dates)
     {
         this.titles = titles;
         this.subtitles = subtitles;
+        this.icons = icons;
+        this.dates = dates;
         mItems = new ArrayList<>();
 
         for(int i=0;i<titles.length;i++)
@@ -48,6 +53,9 @@ public class TimelineViewAdapter extends RecyclerView.Adapter<TimelineViewAdapte
         ClipData.Item item = mItems.get(i);
         timelineViewHolder.itemTitle.setText(titles[i]);
         timelineViewHolder.itemSubtitle.setText(subtitles[i]);
+        timelineViewHolder.icon.setImageResource(icons[i]);
+        timelineViewHolder.itemDate.setText(dates[i]);
+
         switch(timelineViewHolder.getItemViewType())
         {
             case VIEW_TYPE_TOP:
@@ -84,14 +92,18 @@ public class TimelineViewAdapter extends RecyclerView.Adapter<TimelineViewAdapte
     {
         TextView itemTitle;
         TextView itemSubtitle;
+        TextView itemDate;
         FrameLayout itemLine;
+        ImageView icon;
 
         public TimelineViewHolder(View itemView)
         {
             super(itemView);
             itemTitle = itemView.findViewById(R.id.item_title);
             itemSubtitle = itemView.findViewById(R.id.item_subtitle);
+            itemDate = itemView.findViewById(R.id.item_date);
             itemLine = itemView.findViewById(R.id.item_line);
+            icon = itemView.findViewById(R.id.icon_timeline);
         }
     }
 

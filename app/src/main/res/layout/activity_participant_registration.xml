@@ -9,8 +9,8 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="403dp"
-        android:layout_height="654dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_marginTop="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -185,7 +185,18 @@
                     android:textColor="#F0EFEF"
                     android:textColorHint="#E3DFE7"
                     app:errorEnabled="true" />
+
             </android.support.design.widget.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_weight="1"
+                android:text="Google Drive Link"
+                android:layout_gravity="center_horizontal"/>
 
             <Button
                 android:id="@+id/submit"
