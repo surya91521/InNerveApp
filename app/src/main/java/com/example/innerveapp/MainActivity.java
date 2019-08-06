@@ -174,6 +174,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void handleFacebookToken(AccessToken accessToken) {
 
+        progressDialog.show();
         AuthCredential credential = FacebookAuthProvider.getCredential(accessToken.getToken());
         mAuth.signInWithCredential(credential).
                 addOnCompleteListener(new OnCompleteListener<AuthResult>() {

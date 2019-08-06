@@ -47,7 +47,7 @@ public class SingleUserActivity extends AppCompatActivity
 
     FirebaseUser currentUser;
 
-    private FirebaseAuth mAuth;
+     FirebaseAuth mAuth;
 
 
     @Override
@@ -55,6 +55,7 @@ public class SingleUserActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
 
         checkIfCorrectActivity();
+
 
         mAuth = FirebaseAuth.getInstance();
         currentUser= mAuth.getCurrentUser();
