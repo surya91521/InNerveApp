@@ -52,6 +52,7 @@ public class PRLoginActivity extends AppCompatActivity{
     private TextInputLayout textInputpNumber;
     private TextInputLayout textInputVolunteer;
     private TextInputLayout textInputRemark;
+    private ImageView qr;
     private RadioGroup paymentMode;
     private Spinner spinner;
 
@@ -113,6 +114,7 @@ public class PRLoginActivity extends AppCompatActivity{
         textInputVolunteer = findViewById(R.id.volunteers);
         textInputRemark= findViewById(R.id.remark);
         paymentMode = findViewById(R.id.paymentMethod);
+        qr = findViewById(R.id.qrView);
 
         second = findViewById(R.id.secondTeam);
         third = findViewById(R.id.thirdTeam);
@@ -135,6 +137,20 @@ public class PRLoginActivity extends AppCompatActivity{
         });
 
         textInputVolunteer.getEditText().setText(getIntent().getStringExtra("prname"));
+
+        paymentMode.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if(i == R.id.upiId || i == R.id.payId)
+                {
+                    qr.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    qr.setVisibility(View.GONE);
+                }
+            }
+        });
     }
 
     @Override
