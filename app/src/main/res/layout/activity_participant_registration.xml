@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/grey"
     tools:context=".ParticipantRegistration">
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="403dp"
+        android:layout_height="654dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -27,6 +27,7 @@
                 android:id="@+id/names"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHint="#F5F2F8"
                 app:errorEnabled="true">
 
                 <android.support.design.widget.TextInputEditText
@@ -34,6 +35,8 @@
                     android:layout_height="wrap_content"
                     android:hint="Participant's name"
                     android:inputType="textPersonName"
+                    android:textColor="#F5F4F7"
+                    android:textColorHint="#FAF9FC"
                     app:errorEnabled="true" />
             </android.support.design.widget.TextInputLayout>
 
@@ -41,6 +44,7 @@
                 android:id="@+id/emails"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHint="#F7F2F5"
                 app:errorEnabled="true">
 
                 <android.support.design.widget.TextInputEditText
@@ -48,6 +52,8 @@
                     android:layout_height="wrap_content"
                     android:hint="Email ID"
                     android:inputType="textEmailAddress"
+                    android:textColor="#F0EEF3"
+                    android:textColorHint="#F2EFF5"
                     app:errorEnabled="true" />
             </android.support.design.widget.TextInputLayout>
 
@@ -55,6 +61,7 @@
                 android:id="@+id/colleges"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHint="#F5EFF2"
                 app:errorEnabled="true">
 
                 <android.support.design.widget.TextInputEditText
@@ -62,6 +69,8 @@
                     android:layout_height="wrap_content"
                     android:hint="College name"
                     android:inputType="textImeMultiLine"
+                    android:textColor="#FCFAFB"
+                    android:textColorHighlight="#F0EDEF"
                     app:errorEnabled="true" />
             </android.support.design.widget.TextInputLayout>
 
@@ -69,6 +78,7 @@
                 android:id="@+id/phones"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHint="#F5EFF2"
                 app:errorEnabled="true">
 
                 <android.support.design.widget.TextInputEditText
@@ -76,6 +86,8 @@
                     android:layout_height="wrap_content"
                     android:hint="Phone Number"
                     android:inputType="phone"
+                    android:textColor="#EFEDF1"
+                    android:textColorHint="#F5F4F7"
                     app:errorEnabled="true" />
             </android.support.design.widget.TextInputLayout>
 
@@ -86,12 +98,14 @@
                 android:layout_gravity="left"
                 android:gravity="center"
                 android:text="Team Count :-"
+                android:textColor="#F7F6FA"
                 android:textSize="14sp" />
 
             <Spinner
                 android:id="@+id/spinner"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
+                android:background="@android:color/white"
                 android:gravity="center_horizontal" />
 
             <android.support.design.widget.TextInputLayout
@@ -143,6 +157,7 @@
                 android:id="@+id/remark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHint="#F3F2F5"
                 app:errorEnabled="true">
 
                 <android.support.design.widget.TextInputEditText
@@ -150,6 +165,8 @@
                     android:layout_height="wrap_content"
                     android:hint="Enter remark(Optional)"
                     android:inputType="textLongMessage"
+                    android:textColor="#F0EFEF"
+                    android:textColorHint="#E3DFE7"
                     app:errorEnabled="true" />
             </android.support.design.widget.TextInputLayout>
 
