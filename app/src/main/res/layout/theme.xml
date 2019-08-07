@@ -55,7 +55,7 @@ tools:context=".Theme">
                 android:paddingRight="20dp"
                 android:text="Mission to help developers automate repetitive processes and to increase employee productivity. A world of devices connected by internet opens up opportunities for us that were previously unthinkable."
                 android:textColor="#0A0909"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:visibility="gone" />
 
             <android.support.v7.widget.CardView
@@ -95,7 +95,7 @@ tools:context=".Theme">
                 android:paddingRight="20dp"
                 android:text="With the help of AI. Not only it helps in increasing organizational efficiency, but it also reduces the possibility of any critical error. AI helps to detect irregular patterns like payment fraud and alert the firm about any suspicious activity."
                 android:textColor="#0A0909"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:visibility="gone" />
 
             <android.support.v7.widget.CardView
@@ -135,7 +135,7 @@ tools:context=".Theme">
                 android:paddingRight="20dp"
                 android:text="Develop next generation security apps right from SCRATCH or based on the -CONTROL: A cryptographic Digital Control Platform. Participants will be provided access to -SDK and -ADAPTER with API with documentation which can help build security apps 2.0."
                 android:textColor="#0A0909"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:visibility="gone" />
 
             <android.support.v7.widget.CardView
@@ -175,7 +175,7 @@ tools:context=".Theme">
                 android:paddingRight="20dp"
                 android:text="We are letting the participants to take an un-orthodox approach for fast-paced growth and submit a development plan for betterment of the cities. This will let the participants to understand their challenges and by engaging with experts to get insights and solutions for a smarter way of developing city."
                 android:textColor="#0A0909"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:visibility="gone" />
 
             <android.support.v7.widget.CardView
@@ -216,7 +216,7 @@ tools:context=".Theme">
                 android:paddingRight="20dp"
                 android:text="Looking at Healthcare in a completely new way - focusing on earlier, pre-symptomatic disease detection and prevention, instead of late diagnosis - helping clinicians access more information and intervene sooner with targeted treatments so their patients can lead longer, fuller lives."
                 android:textColor="#0A0909"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:visibility="gone" />
 
             <android.support.v7.widget.CardView
@@ -260,7 +260,7 @@ tools:context=".Theme">
                 android:paddingRight="20dp"
                 android:text="Blockchain, is envisioned to revolutionize human society over the coming decades in ways yet unimagined. Block chain technology provides new infrastructure to build the next innovative applications beyond crypto currencies, driving profound, positive changes across business, communities and society."
                 android:textColor="#0A0909"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:visibility="gone" />
         </LinearLayout>
 </ScrollView>
