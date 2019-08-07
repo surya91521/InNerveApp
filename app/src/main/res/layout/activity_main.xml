@@ -11,8 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="-102dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <ImageView
@@ -22,6 +23,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
+            android:alpha="0.7"
             app:srcCompat="@drawable/innerve" />
 
         <EditText
@@ -50,7 +52,7 @@
             android:layout_alignStart="@+id/emailText"
             android:layout_alignLeft="@+id/emailText"
             android:layout_alignBottom="@+id/cardView"
-            android:layout_marginBottom="130dp"
+            android:layout_marginBottom="80dp"
             android:background="#11000000"
             android:drawableLeft="@drawable/ic_action_pass"
             android:ems="10"
@@ -69,7 +71,7 @@
             android:layout_height="50dp"
             android:layout_above="@+id/fb"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="31dp"
+            android:layout_marginBottom="16dp"
             app:cardBackgroundColor="@color/colorAccent"
             app:cardCornerRadius="25dp"
             app:cardElevation="10dp">
@@ -100,8 +102,7 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/linearLayout"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="6dp"
-            android:onClick="goToSingleUser"
+            android:layout_marginBottom="0dp"
             android:text="For Candidate Registration"
             android:textColor="#F4F1F5"
             android:textColorHint="#F8F4F5" />
@@ -111,18 +112,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/nav_photo"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
             android:layout_marginLeft="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="0dp"
             android:layout_marginBottom="0dp"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/githubBut"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
+                android:layout_height="38dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="0dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="6dp"
+                android:layout_weight="1"
                 android:onClick="githubLogin"
                 android:text="Github Login"
                 android:textColor="#111011"
@@ -133,10 +141,13 @@
                 android:id="@+id/login_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginBottom="6dp"
-                android:onClick="buttonclickLoginFb"
-                android:layout_gravity="center_vertical"/>
+                android:layout_gravity="center"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginBottom="8dp"
+                android:layout_weight="1"
+                android:onClick="buttonclickLoginFb" />
         </LinearLayout>
 
 
