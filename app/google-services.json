@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "220467385657-029kcsrto9rmd0sj6otn5l129ruu2pnd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.innerveapp",
+            "certificate_hash": "b0d1da5d25d8017a86ea1b5e6125c682a1a6cd05"
+          }
+        },
+        {
           "client_id": "220467385657-8q5ag6bapnfdc52g1culs46k692dk4q1.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
