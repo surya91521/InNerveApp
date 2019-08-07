@@ -1,267 +1,264 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical"
-android:weightSum="10"
-tools:context=".Theme">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10"
+    tools:context=".Theme">
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/black"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+            <ImageView
+                android:id="@+id/auto"
+                android:layout_width="417dp"
+                android:layout_height="421dp"
+                android:background="@android:color/black"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                app:srcCompat="@drawable/auto" />
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:background="@drawable/button_bg_straight"
+                android:onClick="themeToRegister"
+                android:paddingBottom="0dp"
+                android:tag="0"
+                android:text="REGISTER" />
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:id="@+id/Auto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="Mission to help developers automate repetitive processes and to increase employee productivity. A world of devices connected by internet opens up opportunities for us that were previously unthinkable."
+            android:textColor="#0A0909"
+            android:textSize="17sp"
+            android:visibility="gone" />
 
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
 
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="5dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+            <ImageView
+                android:id="@+id/ai"
+                android:layout_width="wrap_content"
+                android:layout_height="421dp"
+                android:background="@android:color/black"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                app:srcCompat="@drawable/ai" />
 
-
-
-                <ImageView
-                    android:id="@+id/auto"
-                    android:layout_width="match_parent"
-                    android:layout_height="421dp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    app:srcCompat="@drawable/auto" />
-
-                <Button
-                    android:id="@+id/button2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:layout_marginBottom="16dp"
-                    android:paddingBottom="0dp"
-                    android:text="Register"
-                    android:onClick="themeToRegister"
-                    android:tag="0"/>
-            </android.support.v7.widget.CardView>
-
-            <TextView
-                android:id="@+id/Auto"
+            <Button
+                android:id="@+id/button3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:onClick="themeToRegister"
+                android:background="@drawable/button_bg_straight"
+                android:paddingBottom="0dp"
+                android:tag="2"
+                android:text="REGISTER" />
+        </android.support.v7.widget.CardView>
 
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:text="Mission to help developers automate repetitive processes and to increase employee productivity. A world of devices connected by internet opens up opportunities for us that were previously unthinkable."
-                android:textColor="#0A0909"
-                android:textSize="17sp"
-                android:visibility="gone" />
+        <TextView
+            android:id="@+id/Ai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="With the help of AI. Not only it helps in increasing organizational efficiency, but it also reduces the possibility of any critical error. AI helps to detect irregular patterns like payment fraud and alert the firm about any suspicious activity."
+            android:textColor="#0A0909"
+            android:textSize="17sp"
+            android:visibility="gone" />
 
-            <android.support.v7.widget.CardView
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <ImageView
+                android:id="@+id/cyber"
+                android:layout_width="wrap_content"
+                android:layout_height="421dp"
+                android:background="@android:color/black"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                app:srcCompat="@drawable/sec" />
+
+            <Button
+                android:id="@+id/button4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="15dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                android:layout_gravity="bottom|center_horizontal"
+                android:background="@drawable/button_bg_straight"
+                android:onClick="themeToRegister"
+                android:paddingBottom="0dp"
+                android:tag="4"
+                android:text="REGISTER" />
+        </android.support.v7.widget.CardView>
 
-                <ImageView
-                    android:id="@+id/ai"
-                    android:layout_width="wrap_content"
-                    android:layout_height="421dp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    app:srcCompat="@drawable/ai" />
+        <TextView
+            android:id="@+id/Cyber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="Develop next generation security apps right from SCRATCH or based on the -CONTROL: A cryptographic Digital Control Platform. Participants will be provided access to -SDK and -ADAPTER with API with documentation which can help build security apps 2.0."
+            android:textColor="#0A0909"
+            android:textSize="17sp"
+            android:visibility="gone" />
 
-                <Button
-                    android:id="@+id/button3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:layout_marginBottom="16dp"
-                    android:paddingBottom="0dp"
-                    android:text="Register"
-                    android:onClick="themeToRegister"
-                    android:tag="2"/>
-            </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
 
-            <TextView
-                android:id="@+id/Ai"
+            <ImageView
+                android:id="@+id/smart"
+                android:layout_width="match_parent"
+                android:layout_height="421dp"
+                android:background="@android:color/black"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                app:srcCompat="@drawable/scity" />
+            <Button
+                android:id="@+id/button5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:text="With the help of AI. Not only it helps in increasing organizational efficiency, but it also reduces the possibility of any critical error. AI helps to detect irregular patterns like payment fraud and alert the firm about any suspicious activity."
-                android:textColor="#0A0909"
-                android:textSize="17sp"
-                android:visibility="gone" />
+                android:layout_gravity="bottom|center_horizontal"
+                android:background="@drawable/button_bg_straight"
+                android:onClick="themeToRegister"
+                android:paddingBottom="0dp"
+                android:tag="3"
+                android:text="REGISTER" />
+        </android.support.v7.widget.CardView>
 
-            <android.support.v7.widget.CardView
+        <TextView
+            android:id="@+id/Smart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="We are letting the participants to take an un-orthodox approach for fast-paced growth and submit a development plan for betterment of the cities. This will let the participants to understand their challenges and by engaging with experts to get insights and solutions for a smarter way of developing city."
+            android:textColor="#0A0909"
+            android:textSize="17sp"
+            android:visibility="gone" />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <ImageView
+                android:id="@+id/health"
+                android:layout_width="match_parent"
+                android:layout_height="421dp"
+                android:background="@android:color/black"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                app:srcCompat="@drawable/health" />
+
+            <Button
+                android:id="@+id/button6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="15dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                android:layout_gravity="bottom|center_horizontal"
+                android:background="@drawable/button_bg_straight"
+                android:onClick="themeToRegister"
+                android:paddingBottom="0dp"
+                android:tag="1"
+                android:text="REGISTER" />
+        </android.support.v7.widget.CardView>
 
-                <ImageView
-                    android:id="@+id/cyber"
-                    android:layout_width="wrap_content"
-                    android:layout_height="421dp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    app:srcCompat="@drawable/sec" />
+        <TextView
+            android:id="@+id/Health"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="Looking at Healthcare in a completely new way - focusing on earlier, pre-symptomatic disease detection and prevention, instead of late diagnosis - helping clinicians access more information and intervene sooner with targeted treatments so their patients can lead longer, fuller lives."
+            android:textColor="#0A0909"
+            android:textSize="17sp"
+            android:visibility="gone" />
 
-                <Button
-                    android:id="@+id/button4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:layout_marginBottom="16dp"
-                    android:paddingBottom="0dp"
-                    android:text="Register"
-                    android:onClick="themeToRegister"
-                    android:tag="4"/>
-            </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
 
-            <TextView
-                android:id="@+id/Cyber"
+            <ImageView
+                android:id="@+id/block"
+                android:layout_width="match_parent"
+                android:layout_height="421dp"
+                android:background="#040405"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                app:srcCompat="@drawable/blockchain" />
+
+            <Button
+                android:id="@+id/button7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:text="Develop next generation security apps right from SCRATCH or based on the -CONTROL: A cryptographic Digital Control Platform. Participants will be provided access to -SDK and -ADAPTER with API with documentation which can help build security apps 2.0."
-                android:textColor="#0A0909"
-                android:textSize="17sp"
-                android:visibility="gone" />
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="15dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
-
-                <ImageView
-                    android:id="@+id/smart"
-                    android:layout_width="match_parent"
-                    android:layout_height="421dp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    app:srcCompat="@drawable/scity" />
-
-                <Button
-                    android:id="@+id/button5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:layout_marginBottom="16dp"
-                    android:paddingBottom="0dp"
-                    android:text="Register"
-                    android:onClick="themeToRegister"
-                    android:tag="3"/>
-            </android.support.v7.widget.CardView>
-
-            <TextView
-                android:id="@+id/Smart"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:text="We are letting the participants to take an un-orthodox approach for fast-paced growth and submit a development plan for betterment of the cities. This will let the participants to understand their challenges and by engaging with experts to get insights and solutions for a smarter way of developing city."
-                android:textColor="#0A0909"
-                android:textSize="17sp"
-                android:visibility="gone" />
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="15dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
-
-                <ImageView
-                    android:id="@+id/health"
-                    android:layout_width="match_parent"
-                    android:layout_height="421dp"
-                    android:background="#ECE9F0"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    app:srcCompat="@drawable/health" />
-
-                <Button
-                    android:id="@+id/button6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:layout_marginBottom="16dp"
-                    android:paddingBottom="0dp"
-                    android:text="Register"
-                    android:onClick="themeToRegister"
-                    android:tag="1"/>
-            </android.support.v7.widget.CardView>
-
-            <TextView
-                android:id="@+id/Health"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:text="Looking at Healthcare in a completely new way - focusing on earlier, pre-symptomatic disease detection and prevention, instead of late diagnosis - helping clinicians access more information and intervene sooner with targeted treatments so their patients can lead longer, fuller lives."
-                android:textColor="#0A0909"
-                android:textSize="17sp"
-                android:visibility="gone" />
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="15dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
-
-                <ImageView
-                    android:id="@+id/block"
-                    android:layout_width="match_parent"
-                    android:layout_height="421dp"
-                    android:background="#040405"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    app:srcCompat="@drawable/blockchain" />
-
-                <Button
-                    android:id="@+id/button7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:layout_marginBottom="16dp"
-                    android:paddingBottom="0dp"
-                    android:text="Register"
-                    android:onClick="themeToRegister"
-                    android:tag="5"/>
+                android:layout_gravity="bottom|center_horizontal"
+                android:background="@drawable/button_bg_straight"
+                android:onClick="themeToRegister"
+                android:paddingBottom="0dp"
+                android:tag="5"
+                android:text="REGISTER" />
 
 
-            </android.support.v7.widget.CardView>
+        </android.support.v7.widget.CardView>
 
-            <TextView
-                android:id="@+id/Block"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:text="Blockchain, is envisioned to revolutionize human society over the coming decades in ways yet unimagined. Block chain technology provides new infrastructure to build the next innovative applications beyond crypto currencies, driving profound, positive changes across business, communities and society."
-                android:textColor="#0A0909"
-                android:textSize="17sp"
-                android:visibility="gone" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/Block"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="Blockchain, is envisioned to revolutionize human society over the coming decades in ways yet unimagined. Block chain technology provides new infrastructure to build the next innovative applications beyond crypto currencies, driving profound, positive changes across business, communities and society."
+            android:textColor="#0A0909"
+            android:textSize="17sp"
+            android:visibility="gone" />
+    </LinearLayout>
 </ScrollView>
-
