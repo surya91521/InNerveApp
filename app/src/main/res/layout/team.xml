@@ -94,10 +94,8 @@
                 android:layout_height="56dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="14dp"
-                android:layout_marginRight="14dp"
                 android:gravity="center"
-                android:text="Shubham Singh
-                 InNerve Technical Head"
+                android:text="Shubham Singh                   Technical Head"
                 android:textColor="#F8F407"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/nav_photo3" />
@@ -122,10 +120,9 @@
                 android:layout_width="147dp"
                 android:layout_height="56dp"
                 android:layout_marginStart="17dp"
-                android:layout_marginLeft="17dp"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:text="Shailesh Kumar Sahu InNerve Management Head"
+                android:text="Shailesh Kumar Sahu  Management Head"
                 android:textColor="#F8F407"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/nav_photo5" />
@@ -182,11 +179,9 @@
                 android:layout_width="151dp"
                 android:layout_height="56dp"
                 android:layout_marginStart="21dp"
-                android:layout_marginLeft="21dp"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:text="Pankaj Yadav
-                              InNerve Sponsorship Head"
+                android:text="Pankaj Yadav                                Sponsorship Head"
                 android:textColor="#F8F407"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/nav_photo4" />
@@ -216,10 +211,8 @@
                 android:layout_height="56dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="17dp"
-                android:layout_marginRight="17dp"
                 android:gravity="center"
-                android:text="Shivam Pathak
-                InNerve Marketing Head"
+                android:text="Shivam Pathak                  Marketing Head"
                 android:textColor="#F8F407"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/nav_photo6" />
