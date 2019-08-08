@@ -359,6 +359,25 @@ public class PRLoginActivity extends AppCompatActivity{
                 Log.i("Count","Failed to update count.");
             }
         });
+
+        userCount.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                if(documentSnapshot.exists())
+                {
+                    count = documentSnapshot.getLong("count").intValue();
+                    count++;
+                    user = "user" + count;
+
+                    mUserRef = FirebaseFirestore.getInstance().document("innerveData/participants/users/" + user);
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                user = "usernull";
+            }
+        });
     }
 
     public void showTeamMemberEditText(int num)
