@@ -193,6 +193,13 @@ public class PRLoginActivity extends AppCompatActivity{
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        this.finishAffinity();
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
 

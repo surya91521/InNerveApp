@@ -98,6 +98,7 @@ public class SingleUserActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+            this.finishAffinity();
         }
     }
 
