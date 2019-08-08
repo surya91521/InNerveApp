@@ -32,18 +32,31 @@ public class Theme extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        final int[] count = {0};
         imageView = view.findViewById(R.id.auto);
         textView = view.findViewById(R.id.Auto);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                textView.setVisibility(View.VISIBLE);
-                textView1.setVisibility(View.GONE);
-                textView2.setVisibility(View.GONE);
-                textView3.setVisibility(View.GONE);
-                textView4.setVisibility(View.GONE);
-                textView5.setVisibility(View.GONE);
+               if(count[0] ==0) {
+                   textView.setVisibility(View.VISIBLE);
+                   textView1.setVisibility(View.GONE);
+                   textView2.setVisibility(View.GONE);
+                   textView3.setVisibility(View.GONE);
+                   textView4.setVisibility(View.GONE);
+                   textView5.setVisibility(View.GONE);
+                   count[0] =1;
+               }else if(count[0] ==1)
+               {
+                   textView.setVisibility(View.GONE);
+                   textView1.setVisibility(View.GONE);
+                   textView2.setVisibility(View.GONE);
+                   textView3.setVisibility(View.GONE);
+                   textView4.setVisibility(View.GONE);
+                   textView5.setVisibility(View.GONE);
+                   count[0]=0;
+               }
             }
         });
 
@@ -53,12 +66,24 @@ public class Theme extends Fragment {
             @Override
             public void onClick(View v) {
 
-                textView.setVisibility(View.GONE);
-                textView1.setVisibility(View.VISIBLE);
-                textView2.setVisibility(View.GONE);
-                textView3.setVisibility(View.GONE);
-                textView4.setVisibility(View.GONE);
-                textView5.setVisibility(View.GONE);
+                if(count[0] ==0) {
+                    textView.setVisibility(View.GONE);
+                    textView1.setVisibility(View.VISIBLE);
+                    textView2.setVisibility(View.GONE);
+                    textView3.setVisibility(View.GONE);
+                    textView4.setVisibility(View.GONE);
+                    textView5.setVisibility(View.GONE);
+                    count[0]=1;
+                }else if(count[0] ==1)
+                {
+                    textView.setVisibility(View.GONE);
+                    textView1.setVisibility(View.GONE);
+                    textView2.setVisibility(View.GONE);
+                    textView3.setVisibility(View.GONE);
+                    textView4.setVisibility(View.GONE);
+                    textView5.setVisibility(View.GONE);
+                    count[0]=0;
+                }
             }
         });
 
@@ -68,12 +93,24 @@ public class Theme extends Fragment {
             @Override
             public void onClick(View v) {
 
-                textView.setVisibility(View.GONE);
-                textView1.setVisibility(View.GONE);
-                textView2.setVisibility(View.VISIBLE);
-                textView3.setVisibility(View.GONE);
-                textView4.setVisibility(View.GONE);
-                textView5.setVisibility(View.GONE);
+                if(count[0] ==0) {
+                    textView.setVisibility(View.GONE);
+                    textView1.setVisibility(View.GONE);
+                    textView2.setVisibility(View.VISIBLE);
+                    textView3.setVisibility(View.GONE);
+                    textView4.setVisibility(View.GONE);
+                    textView5.setVisibility(View.GONE);
+                    count[0]=1;
+                }else if(count[0] ==1)
+                {
+                    textView.setVisibility(View.GONE);
+                    textView1.setVisibility(View.GONE);
+                    textView2.setVisibility(View.GONE);
+                    textView3.setVisibility(View.GONE);
+                    textView4.setVisibility(View.GONE);
+                    textView5.setVisibility(View.GONE);
+                    count[0]=0;
+                }
             }
         });
 
@@ -83,12 +120,24 @@ public class Theme extends Fragment {
             @Override
             public void onClick(View v) {
 
-                textView.setVisibility(View.GONE);
-                textView1.setVisibility(View.GONE);
-                textView2.setVisibility(View.GONE);
-                textView3.setVisibility(View.VISIBLE);
-                textView4.setVisibility(View.GONE);
-                textView5.setVisibility(View.GONE);
+                if(count[0] ==0) {
+                    textView.setVisibility(View.GONE);
+                    textView1.setVisibility(View.GONE);
+                    textView2.setVisibility(View.GONE);
+                    textView3.setVisibility(View.VISIBLE);
+                    textView4.setVisibility(View.GONE);
+                    textView5.setVisibility(View.GONE);
+                    count[0]=1;
+                }else if(count[0] ==1)
+                {
+                    textView.setVisibility(View.GONE);
+                    textView1.setVisibility(View.GONE);
+                    textView2.setVisibility(View.GONE);
+                    textView3.setVisibility(View.GONE);
+                    textView4.setVisibility(View.GONE);
+                    textView5.setVisibility(View.GONE);
+                    count[0]=0;
+                }
             }
         });
 
@@ -98,12 +147,24 @@ public class Theme extends Fragment {
             @Override
             public void onClick(View v) {
 
-                textView.setVisibility(View.GONE);
-                textView1.setVisibility(View.GONE);
-                textView2.setVisibility(View.GONE);
-                textView3.setVisibility(View.GONE);
-                textView4.setVisibility(View.VISIBLE);
-                textView5.setVisibility(View.GONE);
+                if(count[0] ==0) {
+                    textView.setVisibility(View.GONE);
+                    textView1.setVisibility(View.GONE);
+                    textView2.setVisibility(View.GONE);
+                    textView3.setVisibility(View.GONE);
+                    textView4.setVisibility(View.VISIBLE);
+                    textView5.setVisibility(View.GONE);
+                    count[0]=1;
+                }else if(count[0] ==1)
+                {
+                    textView.setVisibility(View.GONE);
+                    textView1.setVisibility(View.GONE);
+                    textView2.setVisibility(View.GONE);
+                    textView3.setVisibility(View.GONE);
+                    textView4.setVisibility(View.GONE);
+                    textView5.setVisibility(View.GONE);
+                    count[0]=0;
+                }
             }
         });
 
@@ -113,12 +174,24 @@ public class Theme extends Fragment {
             @Override
             public void onClick(View v) {
 
-                textView.setVisibility(View.GONE);
-                textView1.setVisibility(View.GONE);
-                textView2.setVisibility(View.GONE);
-                textView3.setVisibility(View.GONE);
-                textView4.setVisibility(View.GONE);
-                textView5.setVisibility(View.VISIBLE);
+                if(count[0] ==0) {
+                    textView.setVisibility(View.GONE);
+                    textView1.setVisibility(View.GONE);
+                    textView2.setVisibility(View.GONE);
+                    textView3.setVisibility(View.GONE);
+                    textView4.setVisibility(View.GONE);
+                    textView5.setVisibility(View.VISIBLE);
+                    count[0]=1;
+                }else if(count[0] ==1)
+                {
+                    textView.setVisibility(View.GONE);
+                    textView1.setVisibility(View.GONE);
+                    textView2.setVisibility(View.GONE);
+                    textView3.setVisibility(View.GONE);
+                    textView4.setVisibility(View.GONE);
+                    textView5.setVisibility(View.GONE);
+                    count[0]=0;
+                }
             }
         });
 
