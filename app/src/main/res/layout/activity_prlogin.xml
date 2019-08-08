@@ -205,7 +205,7 @@
                     android:id="@+id/qrView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/qr"
+                    android:src="@drawable/paytmqr"
                     android:layout_gravity="center_horizontal"
                     android:visibility="gone"/>
 

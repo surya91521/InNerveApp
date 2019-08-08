@@ -149,6 +149,15 @@ public class PRLoginActivity extends AppCompatActivity{
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 if(i == R.id.upiId || i == R.id.payId)
                 {
+                    if(i == R.id.upiId)
+                    {
+                        qr.setImageResource(R.drawable.phonepeqr);
+                    }
+                    else
+                    {
+                        qr.setImageResource(R.drawable.paytmqr);
+                    }
+
                     qr.setVisibility(View.VISIBLE);
                 }
                 else
