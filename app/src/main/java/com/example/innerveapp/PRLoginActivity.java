@@ -252,7 +252,7 @@ public class PRLoginActivity extends AppCompatActivity{
             return;
         }
 
-        progressDialog.cancel();
+
         saveToFireStore();
 
         // clear all edit text
@@ -262,6 +262,7 @@ public class PRLoginActivity extends AppCompatActivity{
         second.getEditText().setText("");
         third.getEditText().setText("");
         fourth.getEditText().setText("");
+
     }
 
     public void saveToFireStore()
@@ -319,11 +320,13 @@ public class PRLoginActivity extends AppCompatActivity{
             @Override
             public void onSuccess(Void aVoid) {
                 Toast.makeText(PRLoginActivity.this, "Registration saved successfully", Toast.LENGTH_SHORT).show();
+                progressDialog.cancel();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(PRLoginActivity.this, "Registration could not be saved", Toast.LENGTH_SHORT).show();
+                progressDialog.cancel();
             }
         });
 

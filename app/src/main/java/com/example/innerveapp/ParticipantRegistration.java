@@ -201,11 +201,11 @@ public class ParticipantRegistration extends AppCompatActivity {
         progressDialog.show();
         if(!validateCollege() | !validateEmail() | !validateUserName() | !validateTeamMembers() | !validatePhone())
         {
-            progressDialog.cancel();
+
             return;
         }
 
-        progressDialog.cancel();
+
         saveToFireStore();
 
         // clear all edit text
@@ -262,12 +262,14 @@ public class ParticipantRegistration extends AppCompatActivity {
             @Override
             public void onSuccess(Void aVoid) {
                 Toast.makeText(ParticipantRegistration.this, "Registration saved successfully", Toast.LENGTH_SHORT).show();
+                progressDialog.cancel();
                 finish();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(ParticipantRegistration.this, "Registration could not be saved", Toast.LENGTH_SHORT).show();
+                progressDialog.cancel();
             }
         });
 

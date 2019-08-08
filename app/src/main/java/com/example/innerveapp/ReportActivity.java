@@ -24,10 +24,12 @@ public class ReportActivity extends AppCompatActivity {
         editText2 = findViewById(R.id.report);
 
 
+
     }
 
     public void submitReport(View view)
     {
+
         String collegeName = editText.getText().toString();
         String volunteer = editText1.getText().toString();
         String report = editText2.getText().toString();
