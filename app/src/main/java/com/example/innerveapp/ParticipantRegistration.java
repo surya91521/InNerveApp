@@ -1,5 +1,6 @@
 package com.example.innerveapp;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -48,6 +49,8 @@ public class ParticipantRegistration extends AppCompatActivity {
     private TextInputLayout second;
     private TextInputLayout third;
     private TextInputLayout fourth;
+    ProgressDialog progressDialog;
+
 
     public String user;
     int count;
@@ -59,6 +62,9 @@ public class ParticipantRegistration extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_participant_registration);
+        progressDialog = new ProgressDialog(ParticipantRegistration.this);
+        progressDialog.setMessage("Loading");
+
 
         userCount.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
@@ -192,11 +198,14 @@ public class ParticipantRegistration extends AppCompatActivity {
 
     public void confirmInput(View view)
     {
+        progressDialog.show();
         if(!validateCollege() | !validateEmail() | !validateUserName() | !validateTeamMembers() | !validatePhone())
         {
+            progressDialog.cancel();
             return;
         }
 
+        progressDialog.cancel();
         saveToFireStore();
 
         // clear all edit text

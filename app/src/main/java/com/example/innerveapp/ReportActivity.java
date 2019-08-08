@@ -13,6 +13,7 @@ public class ReportActivity extends AppCompatActivity {
     EditText editText1;
     EditText editText2;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

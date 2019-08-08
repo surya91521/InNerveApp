@@ -1,5 +1,6 @@
 package com.example.innerveapp;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -55,6 +56,8 @@ public class PRLoginActivity extends AppCompatActivity{
     private ImageView qr;
     private RadioGroup paymentMode;
     private Spinner spinner;
+    ProgressDialog progressDialog;
+
 
     private TextInputLayout second;
     private TextInputLayout third;
@@ -70,6 +73,9 @@ public class PRLoginActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prlogin);
+        progressDialog = new ProgressDialog(PRLoginActivity.this);
+        progressDialog.setMessage("Loading");
+
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         boolean loggedIn = sharedPreferences.getBoolean("logged_in", false);
@@ -239,11 +245,14 @@ public class PRLoginActivity extends AppCompatActivity{
 
     public void confirmInput(View view)
     {
+        progressDialog.show();
         if(!validateCollege() | !validateEmail() | !validateUserName() | !validateVolunteer() | !validateTeamMembers() | !validatePhone())
         {
+            progressDialog.cancel();
             return;
         }
 
+        progressDialog.cancel();
         saveToFireStore();
 
         // clear all edit text
