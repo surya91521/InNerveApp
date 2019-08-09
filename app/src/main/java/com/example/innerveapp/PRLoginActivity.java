@@ -56,7 +56,7 @@ public class PRLoginActivity extends AppCompatActivity{
     private ImageView qr;
     private RadioGroup paymentMode;
     private Spinner spinner;
-    ProgressDialog progressDialog;
+
 
 
     private TextInputLayout second;
@@ -73,8 +73,6 @@ public class PRLoginActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prlogin);
-        progressDialog = new ProgressDialog(PRLoginActivity.this);
-        progressDialog.setMessage("Loading");
 
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
@@ -261,10 +259,9 @@ public class PRLoginActivity extends AppCompatActivity{
 
     public void confirmInput(View view)
     {
-        progressDialog.show();
+
         if(!validateCollege() | !validateEmail() | !validateUserName() | !validateVolunteer() | !validateTeamMembers() | !validatePhone())
         {
-            progressDialog.cancel();
             return;
         }
 
@@ -336,13 +333,11 @@ public class PRLoginActivity extends AppCompatActivity{
             @Override
             public void onSuccess(Void aVoid) {
                 Toast.makeText(PRLoginActivity.this, "Registration saved successfully", Toast.LENGTH_SHORT).show();
-                progressDialog.cancel();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(PRLoginActivity.this, "Registration could not be saved", Toast.LENGTH_SHORT).show();
-                progressDialog.cancel();
             }
         });
 
