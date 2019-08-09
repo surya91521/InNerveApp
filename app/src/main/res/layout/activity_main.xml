@@ -131,12 +131,17 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="6dp"
                 android:layout_weight="1"
-                android:drawableLeft="@drawable/github_mark_120px_plus"
+                android:background="@drawable/github_bg"
+                android:drawableLeft="@drawable/github_mark_light_64px"
                 android:onClick="githubLogin"
-                android:text="Github Login"
-                android:textColor="#111011"
+                android:paddingLeft="16px"
+                android:paddingRight="16px"
+                android:text="Continue with GitHub"
+                android:textColor="#F7F2F7"
                 android:textColorHint="#F8F4F5"
-                android:textSize="8sp" />
+                android:textSize="8sp"
+                android:textAllCaps="false"
+                android:drawablePadding="8px"/>
 
             <com.facebook.login.widget.LoginButton
                 android:id="@+id/login_button"
