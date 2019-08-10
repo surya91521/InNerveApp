@@ -124,7 +124,7 @@ public class SingleUserActivity extends AppCompatActivity
                 break;
 
             case R.id.nav_theme:
-                fragment = new Theme();
+                fragment = new Themes();
                 break;
 
             case R.id.nav_timeline:
