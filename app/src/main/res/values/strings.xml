@@ -35,6 +35,14 @@
         <item>Cyber Security</item>
         <item>Blockchain</item>
     </string-array>
+    <string-array name="themes_description">
+        <item>Mission to help developers automate repetitive processes and to increase employee productivity. A world of devices connected by internet opens up opportunities for us that were previously unthinkable.</item>
+        <item>Looking at Healthcare in a completely new way - focusing on earlier, pre-symptomatic disease detection and prevention, instead of late diagnosis - helping clinicians access more information and intervene sooner with targeted treatments so their patients can lead longer, fuller lives.</item>
+        <item>With the help of AI. Not only it helps in increasing organizational efficiency, but it also reduces the possibility of any critical error. AI helps to detect irregular patterns like payment fraud and alert the firm about any suspicious activity.</item>
+        <item>We are letting the participants to take an un-orthodox approach for fast-paced growth and submit a development plan for betterment of the cities. This will let the participants to understand their challenges and by engaging with experts to get insights and solutions for a smarter way of developing city.</item>
+        <item>Develop next generation security apps right from SCRATCH or based on the -CONTROL: A cryptographic Digital Control Platform. Participants will be provided access to -SDK and -ADAPTER with API with documentation which can help build security apps 2.0.</item>
+        <item>Blockchain, is envisioned to revolutionize human society over the coming decades in ways yet unimagined. Block chain technology provides new infrastructure to build the next innovative applications beyond crypto currencies, driving profound, positive changes across business, communities and society.</item>
+    </string-array>
     <string name="timelinet1">Recruitment of Our team</string>
     <string name="timelines1">The managing team was formed of first, second and third year students</string>
     <string name="timelinet2">Theme announced</string>

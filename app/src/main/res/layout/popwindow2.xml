@@ -32,6 +32,7 @@
         android:layout_marginBottom="8dp"
         android:background="#0A72F0"
         android:onClick="themeToRegister"
+        android:tag="4"
         android:text="Register"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
