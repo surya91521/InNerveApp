@@ -44,6 +44,22 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="30dp"
+        android:autoLink="all"
+        android:drawableLeft="@drawable/ins"
+        android:text="https://www.instagram.com/innerve24hrs"
+        android:textColorLink="#05139E"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="97dp"
         android:layout_marginTop="23dp"
         android:layout_marginEnd="98dp"
@@ -56,6 +72,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
 
     <TextView
         android:id="@+id/textView13"
@@ -77,15 +94,15 @@
         android:id="@+id/textView14"
         android:layout_width="190dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="98dp"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="123dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="8dp"
         android:gravity="center"
-        android:text="ARPIT KUMAR MISHRA\nSecretary , Open Source Club\n+91 9919098303/ 9325611554"
+        android:text="ARPIT KUMAR MISHRA\nSecretary , OSS Club"
         android:textColor="#0C0601"
         android:textColorLink="#0D47A1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/textView15"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
@@ -93,16 +110,42 @@
         android:id="@+id/textView15"
         android:layout_width="189dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="99dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="123dp"
-        android:layout_marginBottom="216dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="7dp"
         android:gravity="center"
-        android:text="SHALINI NEGI\nSecretary, Open Source Club\n +8459224380"
+        android:text="SHALINI NEGI\nSecretary, OSS Club "
         android:textColor="#01020C"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="87dp"
+        android:clickable="true"
+        android:drawableLeft="@drawable/whts"
+        android:text="+91 9919098303"
+        android:textColor="#061CF8"
+        app:layout_constraintEnd_toStartOf="@+id/nos"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/nos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="30dp"
+        android:drawableLeft="@drawable/whts"
+        android:text="+91 7517216025"
+        android:textColor="#0218F1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
 </android.support.constraint.ConstraintLayout>
