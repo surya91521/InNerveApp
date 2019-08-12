@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity"
+        <activity
+            android:name=".SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,9 +40,7 @@
             android:name=".SingleUserActivity"
             android:label="kjafjdka"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity"></activity>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -63,36 +62,24 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".Pop"
-            android:theme="@style/AppTheme.CustomTheme">
-
-        </activity>
-
-        <activity android:name=".Pop1"
-            android:theme="@style/AppTheme.CustomTheme">
-
-        </activity>
-
-        <activity android:name=".Pop2"
-            android:theme="@style/AppTheme.CustomTheme">
-
-        </activity>
-
-        <activity android:name=".Pop3"
-            android:theme="@style/AppTheme.CustomTheme">
-
-        </activity>
-
-        <activity android:name=".Pop4"
-            android:theme="@style/AppTheme.CustomTheme">
-
-        </activity>
-
-        <activity android:name=".Pop5"
-            android:theme="@style/AppTheme.CustomTheme">
-
-        </activity>
-
+        <activity
+            android:name=".Pop"
+            android:theme="@style/AppTheme.CustomTheme"></activity>
+        <activity
+            android:name=".Pop1"
+            android:theme="@style/AppTheme.CustomTheme"></activity>
+        <activity
+            android:name=".Pop2"
+            android:theme="@style/AppTheme.CustomTheme"></activity>
+        <activity
+            android:name=".Pop3"
+            android:theme="@style/AppTheme.CustomTheme"></activity>
+        <activity
+            android:name=".Pop4"
+            android:theme="@style/AppTheme.CustomTheme"></activity>
+        <activity
+            android:name=".Pop5"
+            android:theme="@style/AppTheme.CustomTheme"></activity>
     </application>
 
 </manifest>

@@ -4,6 +4,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInstaller;
+import android.media.tv.TvInputService;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
@@ -38,6 +40,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 import java.util.regex.Pattern;
 
 import static com.example.innerveapp.R.id.action_report;
@@ -73,6 +76,9 @@ public class PRLoginActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prlogin);
+
+        PackageInstaller.Session session = null;
+
 
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
@@ -275,6 +281,9 @@ public class PRLoginActivity extends AppCompatActivity{
         second.getEditText().setText("");
         third.getEditText().setText("");
         fourth.getEditText().setText("");
+
+
+
 
     }
 

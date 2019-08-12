@@ -212,6 +212,9 @@ public class ParticipantRegistration extends AppCompatActivity {
         second.getEditText().setText("");
         third.getEditText().setText("");
         fourth.getEditText().setText("");
+
+
+
     }
 
     public void saveToFireStore()
