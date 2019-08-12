@@ -18,6 +18,6 @@ public class Pop4 extends Activity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*.6),(int)(height*.5));
+        getWindow().setLayout((int)(width*.7),(int)(height*.6));
     }
 }
