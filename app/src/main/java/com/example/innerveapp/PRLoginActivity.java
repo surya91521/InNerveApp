@@ -62,9 +62,9 @@ public class PRLoginActivity extends AppCompatActivity{
 
 
 
-    private TextInputLayout second;
-    private TextInputLayout third;
-    private TextInputLayout fourth;
+    //private TextInputLayout second;
+    //private TextInputLayout third;
+    //private TextInputLayout fourth;
 
     public String user;
     int count;
@@ -126,9 +126,9 @@ public class PRLoginActivity extends AppCompatActivity{
         paymentMode = findViewById(R.id.paymentMethod);
         qr = findViewById(R.id.qrView);
 
-        second = findViewById(R.id.secondTeam);
-        third = findViewById(R.id.thirdTeam);
-        fourth = findViewById(R.id.fourthTeam);
+        //second = findViewById(R.id.secondTeam);
+        //third = findViewById(R.id.thirdTeam);
+        //fourth = findViewById(R.id.fourthTeam);
 
         spinner = (Spinner)findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.Count,android.R.layout.simple_spinner_item);
@@ -137,12 +137,12 @@ public class PRLoginActivity extends AppCompatActivity{
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                showTeamMemberEditText(i);
+                //showTeamMemberEditText(i);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                showTeamMemberEditText(0);
+                //showTeamMemberEditText(0);
             }
         });
 
@@ -266,7 +266,7 @@ public class PRLoginActivity extends AppCompatActivity{
     public void confirmInput(View view)
     {
 
-        if(!validateCollege() | !validateEmail() | !validateUserName() | !validateVolunteer() | !validateTeamMembers() | !validatePhone())
+        if(!validateCollege() | !validateEmail() | !validateUserName() | !validateVolunteer() | !validatePhone())
         {
             return;
         }
@@ -278,9 +278,9 @@ public class PRLoginActivity extends AppCompatActivity{
         textInputName.getEditText().setText("");
         textInputEmail.getEditText().setText("");
         textInputpNumber.getEditText().setText("");
-        second.getEditText().setText("");
-        third.getEditText().setText("");
-        fourth.getEditText().setText("");
+        //second.getEditText().setText("");
+        //third.getEditText().setText("");
+        //fourth.getEditText().setText("");
 
 
 
@@ -320,7 +320,9 @@ public class PRLoginActivity extends AppCompatActivity{
         // add team members
         int teamcount = spinner.getSelectedItemPosition();
 
-        if(teamcount != 4)
+        participant.put("teamcount", teamcount);
+
+        /*if(teamcount != 4)
         {
             if(teamcount >= 1)
             {
@@ -336,7 +338,7 @@ public class PRLoginActivity extends AppCompatActivity{
                     }
                 }
             }
-        }
+        } */
 
         mUserRef.set(participant).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
@@ -384,7 +386,7 @@ public class PRLoginActivity extends AppCompatActivity{
         });
     }
 
-    public void showTeamMemberEditText(int num)
+    /*public void showTeamMemberEditText(int num)
     {
         second.setVisibility(View.GONE);
         third.setVisibility(View.GONE);
@@ -399,7 +401,7 @@ public class PRLoginActivity extends AppCompatActivity{
             case 1:
                 second.setVisibility(View.VISIBLE);
         }
-    }
+    } */
 
     public boolean validateName(String name, TextInputLayout layout)
     {
@@ -437,7 +439,7 @@ public class PRLoginActivity extends AppCompatActivity{
         }
     }
 
-    public boolean validateTeamMembers()
+    /*public boolean validateTeamMembers()
     {
         int teamcount = spinner.getSelectedItemPosition();
         boolean validated = true;
@@ -455,7 +457,7 @@ public class PRLoginActivity extends AppCompatActivity{
         }
 
         return validated;
-    }
+    } */
 
     public void signOut()
     {
