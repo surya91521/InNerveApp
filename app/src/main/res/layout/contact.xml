@@ -15,7 +15,6 @@
         android:layout_marginTop="44dp"
         android:layout_marginEnd="96dp"
         android:autoLink="all"
-        android:drawableLeft="@drawable/com_facebook_button_icon_blue"
         android:foregroundGravity="center"
         android:gravity="center"
         android:text="facebook.com/innerve24hrs"

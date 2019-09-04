@@ -37,11 +37,21 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import java.util.regex.Pattern;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 import static com.example.innerveapp.R.id.action_report;
 import static com.example.innerveapp.R.id.action_sign_out;
@@ -60,7 +70,13 @@ public class PRLoginActivity extends AppCompatActivity{
     private RadioGroup paymentMode;
     private Spinner spinner;
 
-
+    String queryEmail = "";
+    String queryName = "";
+    String queryCollege = "";
+    String queryPr = "";
+    String queryPM = "";
+    String queryPhone = "";
+    String querytcount = "";
 
     //private TextInputLayout second;
     //private TextInputLayout third;
@@ -296,6 +312,12 @@ public class PRLoginActivity extends AppCompatActivity{
         participant.put("number", textInputpNumber.getEditText().getText().toString());
         participant.put("pr", textInputVolunteer.getEditText().getText().toString());
 
+        queryEmail = textInputEmail.getEditText().getText().toString();
+        queryName = textInputName.getEditText().getText().toString();
+        queryCollege = textInputCollege.getEditText().getText().toString();
+        queryPhone = textInputpNumber.getEditText().getText().toString();
+        queryPr = textInputVolunteer.getEditText().getText().toString();
+
         String remark = textInputRemark.getEditText().getText().toString();
 
         if(!remark.isEmpty())
@@ -308,17 +330,21 @@ public class PRLoginActivity extends AppCompatActivity{
         if(payid == R.id.cashId)
         {
             participant.put("paymentMethod", "Cash");
+            queryPM = "Cash";
         }
         else if(payid == R.id.payId)
         {
             participant.put("paymentMethod", "PayTM");
+            queryPM = "PayTM";
         }else if(payid == R.id.upiId)
         {
             participant.put("paymentMethod", "BHIM UPI");
+            queryPM = "BHIM UPI";
         }
 
         // add team members
         int teamcount = spinner.getSelectedItemPosition();
+        querytcount = (teamcount + 1) + "";
 
         participant.put("teamcount", teamcount);
 
@@ -344,6 +370,40 @@ public class PRLoginActivity extends AppCompatActivity{
             @Override
             public void onSuccess(Void aVoid) {
                 Toast.makeText(PRLoginActivity.this, "Registration saved successfully", Toast.LENGTH_SHORT).show();
+
+                try
+                {
+                    queryEmail = URLEncoder.encode(queryEmail, "utf-8");
+                    queryName = URLEncoder.encode(queryName, "utf-8");
+                }catch(Exception e)
+                {
+                    e.printStackTrace();
+                }
+
+                String link = "https://us-central1-innerve-a43dd.cloudfunctions.net/sendMail3?email=" + queryEmail + "&lname=" + queryName + "&college=" + queryCollege + "&phno=" + queryPhone + "&tcount=" + querytcount + "&prname=" + queryPr + "&payment=" + queryPM;
+
+                OkHttpClient client = new OkHttpClient();
+                Request request = new Request.Builder().url(link).build();
+
+                client.newCall(request).enqueue(new Callback() {
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    @Override
+                    public void onResponse(Call call, Response response) throws IOException {
+                        if(response.isSuccessful())
+                        {
+                            PRLoginActivity.this.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(PRLoginActivity.this, "Sent email", Toast.LENGTH_LONG);
+                                }
+                            });
+                        }
+                    }
+                });
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
