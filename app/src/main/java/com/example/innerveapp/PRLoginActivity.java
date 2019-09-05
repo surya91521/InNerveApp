@@ -303,8 +303,7 @@ public class PRLoginActivity extends AppCompatActivity{
 
     }
 
-    public void saveToFireStore()
-    {
+    public void saveToFireStore() {
         Map<String, Object> participant = new HashMap<>();
         participant.put("name", textInputName.getEditText().getText().toString());
         participant.put("email", textInputEmail.getEditText().getText().toString());
@@ -320,24 +319,19 @@ public class PRLoginActivity extends AppCompatActivity{
 
         String remark = textInputRemark.getEditText().getText().toString();
 
-        if(!remark.isEmpty())
-        {
+        if (!remark.isEmpty()) {
             participant.put("remark", remark);
         }
 
         int payid = paymentMode.getCheckedRadioButtonId();
 
-        if(payid == R.id.cashId)
-        {
+        if (payid == R.id.cashId) {
             participant.put("paymentMethod", "Cash");
             queryPM = "Cash";
-        }
-        else if(payid == R.id.payId)
-        {
+        } else if (payid == R.id.payId) {
             participant.put("paymentMethod", "PayTM");
             queryPM = "PayTM";
-        }else if(payid == R.id.upiId)
-        {
+        } else if (payid == R.id.upiId) {
             participant.put("paymentMethod", "BHIM UPI");
             queryPM = "BHIM UPI";
         }
@@ -366,7 +360,59 @@ public class PRLoginActivity extends AppCompatActivity{
             }
         } */
 
-        mUserRef.set(participant).addOnSuccessListener(new OnSuccessListener<Void>() {
+
+        FirebaseFirestore.getInstance().collection("innerveData").document("participants").collection("users")
+                .add(participant)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Toast.makeText(getApplicationContext(), "Registration saved successfully", Toast.LENGTH_SHORT).show();
+                        // Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+
+                        try
+                        {
+                            queryEmail = URLEncoder.encode(queryEmail, "utf-8");
+                            queryName = URLEncoder.encode(queryName, "utf-8");
+                        }catch(Exception e)
+                        {
+                            e.printStackTrace();
+                        }
+
+                        String link = "https://us-central1-innerve-a43dd.cloudfunctions.net/sendMail3?email=" + queryEmail + "&lname=" + queryName + "&college=" + queryCollege + "&phno=" + queryPhone + "&tcount=" + querytcount + "&prname=" + queryPr + "&payment=" + queryPM;
+
+                        OkHttpClient client = new OkHttpClient();
+                        Request request = new Request.Builder().url(link).build();
+
+                        client.newCall(request).enqueue(new Callback() {
+                            @Override
+                            public void onFailure(Call call, IOException e) {
+                                e.printStackTrace();
+                            }
+
+                            @Override
+                            public void onResponse(Call call, Response response) throws IOException {
+                                if(response.isSuccessful())
+                                {
+                                    PRLoginActivity.this.runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Toast.makeText(PRLoginActivity.this, "Sent email", Toast.LENGTH_LONG);
+                                        }
+                                    });
+                                }
+                            }
+                        });
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getApplicationContext(), "Registration saved successfully", Toast.LENGTH_SHORT).show();
+                        //  Log.w(TAG, "Error adding document", e);
+                    }
+                });
+        }
+        /*mUserRef.set(participant).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 Toast.makeText(PRLoginActivity.this, "Registration saved successfully", Toast.LENGTH_SHORT).show();
@@ -444,7 +490,7 @@ public class PRLoginActivity extends AppCompatActivity{
                 user = "usernull";
             }
         });
-    }
+    } */
 
     /*public void showTeamMemberEditText(int num)
     {
