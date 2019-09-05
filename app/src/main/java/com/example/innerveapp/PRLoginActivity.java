@@ -8,6 +8,7 @@ import android.content.pm.PackageInstaller;
 import android.media.tv.TvInputService;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -294,13 +295,6 @@ public class PRLoginActivity extends AppCompatActivity{
         textInputName.getEditText().setText("");
         textInputEmail.getEditText().setText("");
         textInputpNumber.getEditText().setText("");
-        //second.getEditText().setText("");
-        //third.getEditText().setText("");
-        //fourth.getEditText().setText("");
-
-
-
-
     }
 
     public void saveToFireStore() {
@@ -342,24 +336,6 @@ public class PRLoginActivity extends AppCompatActivity{
 
         participant.put("teamcount", teamcount);
 
-        /*if(teamcount != 4)
-        {
-            if(teamcount >= 1)
-            {
-                participant.put("secondMember", second.getEditText().getText().toString());
-
-                if(teamcount >= 2)
-                {
-                    participant.put("thirdMember", second.getEditText().getText().toString());
-
-                    if(teamcount == 3)
-                    {
-                        participant.put("fourthMember", fourth.getEditText().getText().toString());
-                    }
-                }
-            }
-        } */
-
 
         FirebaseFirestore.getInstance().collection("innerveData").document("participants").collection("users")
                 .add(participant)
@@ -368,6 +344,8 @@ public class PRLoginActivity extends AppCompatActivity{
                     public void onSuccess(DocumentReference documentReference) {
                         Toast.makeText(getApplicationContext(), "Registration saved successfully", Toast.LENGTH_SHORT).show();
                         // Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                        Snackbar snackbar = Snackbar.make(findViewById(R.id.pr_view), "Registration saved successfully", Snackbar.LENGTH_LONG);
+                        snackbar.show();
 
                         try
                         {
@@ -407,107 +385,11 @@ public class PRLoginActivity extends AppCompatActivity{
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getApplicationContext(), "Registration saved successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Unsuccessful, Registration not saved", Toast.LENGTH_SHORT).show();
                         //  Log.w(TAG, "Error adding document", e);
                     }
                 });
         }
-        /*mUserRef.set(participant).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                Toast.makeText(PRLoginActivity.this, "Registration saved successfully", Toast.LENGTH_SHORT).show();
-
-                try
-                {
-                    queryEmail = URLEncoder.encode(queryEmail, "utf-8");
-                    queryName = URLEncoder.encode(queryName, "utf-8");
-                }catch(Exception e)
-                {
-                    e.printStackTrace();
-                }
-
-                String link = "https://us-central1-innerve-a43dd.cloudfunctions.net/sendMail3?email=" + queryEmail + "&lname=" + queryName + "&college=" + queryCollege + "&phno=" + queryPhone + "&tcount=" + querytcount + "&prname=" + queryPr + "&payment=" + queryPM;
-
-                OkHttpClient client = new OkHttpClient();
-                Request request = new Request.Builder().url(link).build();
-
-                client.newCall(request).enqueue(new Callback() {
-                    @Override
-                    public void onFailure(Call call, IOException e) {
-                        e.printStackTrace();
-                    }
-
-                    @Override
-                    public void onResponse(Call call, Response response) throws IOException {
-                        if(response.isSuccessful())
-                        {
-                            PRLoginActivity.this.runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Toast.makeText(PRLoginActivity.this, "Sent email", Toast.LENGTH_LONG);
-                                }
-                            });
-                        }
-                    }
-                });
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(PRLoginActivity.this, "Registration could not be saved", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        Map<String, Object> counter = new HashMap<>();
-        counter.put("count", count);
-        userCount.set(counter).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                Log.i("Count","Updated count");
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.i("Count","Failed to update count.");
-            }
-        });
-
-        userCount.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                if(documentSnapshot.exists())
-                {
-                    count = documentSnapshot.getLong("count").intValue();
-                    count++;
-                    user = "user" + count;
-
-                    mUserRef = FirebaseFirestore.getInstance().document("innerveData/participants/users/" + user);
-                }
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                user = "usernull";
-            }
-        });
-    } */
-
-    /*public void showTeamMemberEditText(int num)
-    {
-        second.setVisibility(View.GONE);
-        third.setVisibility(View.GONE);
-        fourth.setVisibility(View.GONE);
-
-        switch(num)
-        {
-            case 3:
-                fourth.setVisibility(View.VISIBLE);
-            case 2:
-                third.setVisibility(View.VISIBLE);
-            case 1:
-                second.setVisibility(View.VISIBLE);
-        }
-    } */
 
     public boolean validateName(String name, TextInputLayout layout)
     {
@@ -545,25 +427,6 @@ public class PRLoginActivity extends AppCompatActivity{
         }
     }
 
-    /*public boolean validateTeamMembers()
-    {
-        int teamcount = spinner.getSelectedItemPosition();
-        boolean validated = true;
-
-        // if even one is invalid, function returns false
-
-        switch(teamcount)
-        {
-            case 3:
-                validated = validated && validateName(fourth.getEditText().getText().toString(), fourth);
-            case 2:
-                validated = validated && validateName(third.getEditText().getText().toString(), third);
-            case 1:
-                validated = validated && validateName(second.getEditText().getText().toString(), second);
-        }
-
-        return validated;
-    } */
 
     public void signOut()
     {
