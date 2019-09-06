@@ -14,6 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".SubmitPop"
+            android:theme="@style/AppTheme.CustomTheme" >
+
+        </activity>
         <activity
             android:name=".SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -40,7 +44,7 @@
             android:name=".SingleUserActivity"
             android:label="kjafjdka"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -64,22 +68,23 @@
         </activity>
         <activity
             android:name=".Pop"
-            android:theme="@style/AppTheme.CustomTheme"></activity>
+            android:theme="@style/AppTheme.CustomTheme" />
         <activity
             android:name=".Pop1"
-            android:theme="@style/AppTheme.CustomTheme"></activity>
+            android:theme="@style/AppTheme.CustomTheme" />
         <activity
             android:name=".Pop2"
-            android:theme="@style/AppTheme.CustomTheme"></activity>
+            android:theme="@style/AppTheme.CustomTheme" />
         <activity
             android:name=".Pop3"
-            android:theme="@style/AppTheme.CustomTheme"></activity>
+            android:theme="@style/AppTheme.CustomTheme" />
         <activity
             android:name=".Pop4"
-            android:theme="@style/AppTheme.CustomTheme"></activity>
+            android:theme="@style/AppTheme.CustomTheme" />
         <activity
             android:name=".Pop5"
-            android:theme="@style/AppTheme.CustomTheme"></activity>
+            android:theme="@style/AppTheme.CustomTheme" />
+
     </application>
 
 </manifest>

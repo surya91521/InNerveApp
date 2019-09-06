@@ -271,7 +271,7 @@ public class PRLoginActivity extends AppCompatActivity{
             return;
         }
 
-
+        startActivity(new Intent(PRLoginActivity.this, SubmitPop.class));
         saveToFireStore();
 
         // clear all edit text
